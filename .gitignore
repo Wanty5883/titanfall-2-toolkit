@@ -1,5 +1,9 @@
-test.py
 *.mdl
-__init__.py
+supersecret
+
+test.py
+test2.py
 __pycache__
-supersecret.json
+
+node_modules
+gui
