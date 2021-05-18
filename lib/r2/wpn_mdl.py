@@ -1,11 +1,10 @@
 # SPL - Standard Python Libraries
-from inspect import isclass
 import hashlib
 import os.path
 import sys
 # LPL - Local Python Libraries
 from lib.core.enums import WPN
-import lib.core.enums as ENUMS
+from lib.core.attr import attr_wpnList
 import lib.r2.wpn_enums as ENUMS_WPN
 
 
@@ -16,10 +15,7 @@ def wpn_hashMDL_1P(rootDir, weapon):
     model swap. Hence the reason of the md5 hash.
     Weapon var has to be a class name from "wpn_enums.py".
     """
-    enums_classes = [x for x in dir(ENUMS) if isclass(getattr(ENUMS, x))]
-    wpn_classes = [x for x in dir(ENUMS_WPN) if isclass(getattr(ENUMS_WPN, x))]
-    # Negate "enums.py" classes from wpn_classes
-    wpn_enums = [x for x in wpn_classes if x not in enums_classes]
+    wpn_enums = attr_wpnList()
 
     if weapon in wpn_enums:  # Just a bulletproof, argparse prevent that
         fileName = getattr(getattr(ENUMS_WPN, weapon), "MDL_FILE_1P")
