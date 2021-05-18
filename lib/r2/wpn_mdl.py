@@ -70,9 +70,9 @@ def wpn_convertMDL(rootDir, fileType, fileVersion, fileTarget, structTarget):
     filePath = "{0}\\{1}\\{2}".format(rootDir, fileDir, fileName)
     fileMod = getattr(getattr(ENUMS_WPN, structTarget), fileVersion)
     with open(filePath, "r+b") as file:
-        for x in fileMod:
-            file.seek(x[0])
-            file.write(x[1])
+        for offset, bytes in fileMod:
+            file.seek(offset)
+            file.write(bytes)
 
 
 def wpn_convertMDL_1P_V1(rootDir, target, struct):
