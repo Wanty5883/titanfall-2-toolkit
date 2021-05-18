@@ -1,3 +1,11 @@
+class WPN(object):
+    VERSION_V1 = "V1"
+    VERSION_V2 = "V2"
+    VERSION_VANILLA = "Vanilla"
+    VERSION_UNKNOWN = "Unknown"
+    VERSION_FILE404 = "404"
+
+
 class FRONTEND(object):
     WPN_ALTERNATOR_DESC = "Twin Barrel SMG."
     WPN_ALTERNATOR_LONGDESC = "The Alternator (also referred to as the SP-14 Hatchet in concept art) is a Pilot anti-personnel twin-barrel submachine gun manufactured by Emslie Tactical."
