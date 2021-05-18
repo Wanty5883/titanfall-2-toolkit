@@ -1,6 +1,10 @@
 class WPN(object):
-    VERSION_V1 = "V1"
-    VERSION_V2 = "V2"
+    TYPE_1P = "1P"  # First person view
+    TYPE_3P = "3P"  # Third person view
+    TYPE_HP = "HP"  # Holster view
+    TYPE_MP = "MP"  # Menus view
+    VERSION_1 = "V1"
+    VERSION_2 = "V2"
     VERSION_VANILLA = "Vanilla"
     VERSION_UNKNOWN = "Unknown"
     VERSION_FILE404 = "404"

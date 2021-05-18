@@ -2,6 +2,7 @@
 from inspect import isclass
 import hashlib
 import os.path
+import sys
 # LPL - Local Python Libraries
 from lib.core.enums import WPN
 import lib.core.enums as ENUMS
@@ -34,10 +35,44 @@ def wpn_hashMDL_1P(rootDir, weapon):
                 if file_hash == getattr(getattr(ENUMS_WPN, x), hashVanilla):
                     return([weapon, x, WPN.VERSION_VANILLA])
                 elif file_hash == getattr(getattr(ENUMS_WPN, x), hashV1):
-                    return([weapon, x, WPN.VERSION_V1])
+                    return([weapon, x, WPN.VERSION_1])
             return(WPN.VERSION_UNKNOWN)  # if file have unknown modification.
         else:
             return(WPN.VERSION_FILE404)  # if file does not exist.
+
+
+def wpn_convertMDL(rootDir, fileType, fileVersion, fileTarget, structTarget):
+    """
+    Edit a given model file, 'fileTarget' being the attribute to get the
+    file name and path, while 'structTarget' is the attribute to get which
+    binaries to edit. Both 'fileTarget' and 'structTarget' can be the same, being
+    usefull when model swap has been done on the given file.
+    """
+    if fileType == WPN.TYPE_1P:
+        fileType = "MDL_FILE_1P"  # Attribute for first person model
+        if fileVersion == WPN.VERSION_1:
+            fileVersion = "MDL_V1_1P"  # Attribute for bin operation
+        elif fileVersion == WPN.VERSION_VANILLA:
+            fileVersion = "MDL_V1_1P_VANILLA"  # Attribute for bin operation
+        fileFolder = "MDL_FOLDER"  # TODO make exception from here
+    elif fileType == WPN.TYPE_3P:
+        fileType = "MDL_FILE_3P"  # Attribute for third person model
+    elif fileType == WPN.TYPE_HP:
+        fileType = "MDL_FILE_HP"  # Attribute for holster view model
+    elif fileType == WPN.TYPE_MP:
+        fileType = "MDL_FILE_MP"  # Attribute for menus view model
+    else:  # Just a bulletproof, argparse prevent that
+        print("Error")  # TODO proper logging
+        sys.exit(0)
+
+    fileName = getattr(getattr(ENUMS_WPN, fileTarget), fileType)
+    fileDir = getattr(getattr(ENUMS_WPN, fileTarget), fileFolder)
+    filePath = "{0}\\{1}\\{2}".format(rootDir, fileDir, fileName)
+    fileMod = getattr(getattr(ENUMS_WPN, structTarget), fileVersion)
+    with open(filePath, "r+b") as file:
+        for x in fileMod:
+            file.seek(x[0])
+            file.write(x[1])
 
 
 def wpn_convertMDL_1P_V1(rootDir, target, struct):
