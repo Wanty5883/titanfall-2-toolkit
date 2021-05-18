@@ -1,9 +1,8 @@
 *.mdl
 supersecret
 
-test.py
-test2.py
+test*.py
 __pycache__
 
 node_modules
-gui
+electron
