@@ -73,37 +73,3 @@ def wpn_convertMDL(rootDir, fileType, fileVersion, fileTarget, structTarget):
         for offset, bytes in fileMod:
             file.seek(offset)
             file.write(bytes)
-
-
-def wpn_convertMDL_1P_V1(rootDir, target, struct):
-    """
-    Edit a given model file, target being the attribute to get the
-    file name and path while struct is the attribute to get which
-    binaries to edit. Both target and struct can be the same, being
-    usefull when model swap has been done on the given file.
-    """
-    fileName = getattr(getattr(ENUMS_WPN, target), "MDL_FILE_1P")
-    fileDir = getattr(getattr(ENUMS_WPN, target), "MDL_FOLDER")
-    filePath = "{0}\\{1}\\{2}".format(rootDir, fileDir, fileName)
-    fileMod = getattr(getattr(ENUMS_WPN, struct), "MDL_V1_1P")
-    with open(filePath, "r+b") as file:
-        for x in fileMod:
-            file.seek(x[0])
-            file.write(x[1])
-
-
-def wpn_convertMDL_1P_VANILLA(rootDir, target, struct):
-    """
-    Edit a given model file, target being the attribute to get the
-    file name and path while struct is the attribute to get which
-    binaries to edit. Both target and struct can be the same, being
-    usefull when model swap has been done on the given file.
-    """
-    fileName = getattr(getattr(ENUMS_WPN, target), "MDL_FILE_1P")
-    fileDir = getattr(getattr(ENUMS_WPN, target), "MDL_FOLDER")
-    filePath = "{0}\\{1}\\{2}".format(rootDir, fileDir, fileName)
-    fileMod = getattr(getattr(ENUMS_WPN, struct), "MDL_V1_1P_VANILLA")
-    with open(filePath, "r+b") as file:
-        for x in fileMod:
-            file.seek(x[0])
-            file.write(x[1])
