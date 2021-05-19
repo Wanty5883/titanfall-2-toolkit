@@ -1,4 +1,5 @@
 *.mdl
+logs
 supersecret
 
 test*.py
