@@ -725,11 +725,11 @@ class THR40MM(object):
     MDL_FILE_3P = "w_thr_40mm.mdl"
     MDL_FOLDER = "models\\weapons\\thr_40mm"
     MDL_V1_1P = [
-        (311945, b"\x34\x30\x6d\x6d\x5f\x68\x61\x75\x72\x64"),
-        (311956, b"\x34\x30\x6d\x6d\x5f\x68\x61\x75\x72\x64")
+        (311945, b"\x74\x69\x74\x61\x6e\x5f\x35\x30\x6d\x6d"),
+        (311956, b"\x74\x69\x74\x61\x6e\x5f\x35\x30\x6d\x6d")
     ]
-    MDL_V1_1P_HASH = "be5296f004692a5c5e38c2b7375347b2"
-    MDL_V1_1P_MATERIAL = r"models\Weapons_R2\40mm_haurd\40mm_haurd"
+    MDL_V1_1P_HASH = "479acbd0b9be9c1fab2f74b5fc0472ba"
+    MDL_V1_1P_MATERIAL = r"models\Weapons_R2\titan_50mm\titan_50mm"
     MDL_V1_1P_VANILLA = [
         (311945, b"\x74\x69\x74\x61\x6e\x5f\x34\x30\x6d\x6d"),
         (311956, b"\x74\x69\x74\x61\x6e\x5f\x34\x30\x6d\x6d")
@@ -746,11 +746,11 @@ class XO16(object):
     MDL_FILE_3P = "w_xo16shorty.mdl"
     MDL_FOLDER = "models\\weapons\\titan_xo16_shorty"
     MDL_V1_1P = [
-        (309859, b"\x78\x6f\x31\x36\x61\x32\x5f\x63\x68\x61\x69\x6e\x67\x75\x6e\x62\x72"),
+        (309859, b"\x74\x69\x74\x61\x6e\x5f\x63\x68\x61\x69\x6e\x67\x75\x6e\x62\x72\x78"),
         (309877, b"\x78\x6f\x31\x36\x61\x32\x5f\x63\x68\x61\x69\x6e\x67\x75\x6e\x62\x72")
     ]
-    MDL_V1_1P_HASH = "ad90df5a99178aec65b56814b09a1185"
-    MDL_V1_1P_MATERIAL = r"models\Weapons_R2\xo16a2_chaingunbr\xo16a2_chaingunbr"
+    MDL_V1_1P_HASH = "3b52f3a3ddff09e69940d68e5df3474e"
+    MDL_V1_1P_MATERIAL = r"models\Weapons_R2\titan_chaingunbrx\xo16a2_chaingunbr"
     MDL_V1_1P_VANILLA = [
         (309859, b"\x78\x6f\x31\x36\x5f\x73\x68\x6f\x72\x74\x79\x5f\x74\x69\x74\x61\x6e"),
         (309877, b"\x78\x6f\x31\x36\x5f\x73\x68\x6f\x72\x74\x79\x5f\x74\x69\x74\x61\x6e")
