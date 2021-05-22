@@ -5,6 +5,7 @@ import sys
 from lib.core.attr import attr_wpnList
 from lib.core.enums import WPN
 from lib.core.log import logger
+from lib.r2.wpn import wpn_hashMDL
 from lib.r2.wpn import wpn_convertMDL
 
 
@@ -60,10 +61,10 @@ def subparser_wpn(subparser):
         help="Convert a weapon mdl to a defined version"
     )
     wpnMDL.add_argument(
-        "--wpn-convertMDL",
-        dest="wpnConvertMDL",
+        "--wpn-hashMDL",
+        dest="wpnHashMDL",
         action="store_true",
-        help="Convert a weapon mdl to a defined version"
+        help="Hash a weapon model file"
     )
     wpnMDL.add_argument(
         "--wpn-fileType",
@@ -80,8 +81,8 @@ def subparser_wpn(subparser):
         "--wpn-fileVersion",
         dest="wpnFileVersion",
         choices=[
-            WPN.VERSION_V1,
-            WPN.VERSION_V2,
+            WPN.VERSION_1,
+            WPN.VERSION_2,
             WPN.VERSION_VANILLA,
         ],
         help="Choose the 3D model file version"
@@ -120,3 +121,11 @@ def argSubaction_wpn(args, parser):
             args.wpnFileVersion,
             args.wpnFileTarget,
             args.wpnstructTarget)
+    if args.wpnHashMDL:
+        if not args.wpnFileType:
+            logger.critical("Weapon file type is not defined")
+            sys.exit(0)
+        if not args.wpnFileTarget:
+            logger.critical("Weapon file target is not defined")
+            sys.exit(0)
+        wpn_hashMDL(args.rootDirectory, args.wpnFileType, args.wpnFileTarget)
