@@ -1,0 +1,9 @@
+*.mdl
+logs
+supersecret
+
+test*.py
+__pycache__
+
+node_modules
+electron
