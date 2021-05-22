@@ -1,3 +1,17 @@
+class TEXTURE(object):
+    AMBIENTOCC = "ambiant_occ"
+    BASE = "color"
+    BASE2 = "color2"
+    BLENDMODULATE = "blend"
+    BUMP = "normal"
+    CORNEA = "cornea"
+    DETAIL = "detail"
+    ENV = "env"
+    ENVMASK = "env_mask"
+    PHONGEXPONENT = "phong"
+    SELFILLUM = "illum_mask"
+
+
 class WPN(object):
     TYPE_1P = "1P"  # First person view
     TYPE_3P = "3P"  # Third person view
