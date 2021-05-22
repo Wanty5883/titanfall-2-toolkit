@@ -1,10 +1,8 @@
 # LPL - Local Python Libraries
 from lib.core.enums import FRONTEND
+from lib.core.enums import WPN
 
-# MDL_FILE_1P - First person
-# MDL_FILE_3P - Third person
-# MDL_FILE_HP - Holster view
-# MDL_FILE_MP - Menus view
+
 """
 █████████████████████████████████████████████████████╗
 ██                                                 ██║
@@ -34,18 +32,38 @@ $$ |                                                      \$$$$$$  |
 
 
 class ALTERNATOR(object):
-    MDL_FILE_1P = "ptpov_alternator_smg.mdl"
-    MDL_FILE_3P = "w_alternator_smg.mdl"
-    MDL_FILE_HP = "w_alternator_smg_stow.mdl"
-    MDL_FOLDER = "models\\weapons\\alternator_smg"
-    MDL_V1_1P = [(627836, b"\x6c"), (627851, b"\x6c")]
-    MDL_V1_1P_HASH = "d472844ee12583c26d98a9018f466213"
-    MDL_V1_1P_MATERIAL = r"models\Weapons_R2\alternator_lmg\alternator_lmg"
-    MDL_V1_1P_VANILLA = [(627836, b"\x73"), (627851, b"\x73")]
-    MDL_VANILLA_1P_HASH = "e43a2964ec53f2012f388cb562f65d5b"
-    MDL_VANILLA_1P_MATERIAL = r"models\Weapons_R2\alternator_smg\alternator_smg"
-    VMT_FILE_1P = "alternator_lmg.vmt"
-    VMT_FOLDER = MDL_V1_1P_MATERIAL
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r"models\Weapons_R2\alternator_lmg"
+    MATERIAL_1P_FOLDER_VANILLA = r"models\Weapons_R2\alternator_smg"
+    MATERIAL_1P_NAME_MODDED = "alternator_lmg"
+    MATERIAL_1P_NAME_VANILLA = "alternator_smg"
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = "ptpov_alternator_smg.mdl"
+    MDL_1P_V1_BIN = [(627836, b"\x6c"), (627851, b"\x6c")]
+    MDL_1P_V1_BIN_VANILLA = [(627836, b"\x73"), (627851, b"\x73")]
+    MDL_1P_V1_HASH = "d472844ee12583c26d98a9018f466213"
+    MDL_1P_VANILLA_HASH = "e43a2964ec53f2012f388cb562f65d5b"
+    MDL_1P_FOLDER = r"models\weapons\alternator_smg"
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    # 3P - Third person view
+    MDL_3P_FILE = "w_alternator_smg.mdl"
+    # HP - Holster view
+    MDL_HP_FILE = "w_alternator_smg_stow.mdl"
+    # FRONTEND
     WPN_DESC = FRONTEND.WPN_ALTERNATOR_DESC
     WPN_LONGDESC = FRONTEND.WPN_ALTERNATOR_LONGDESC
     WPN_NAME = FRONTEND.WPN_ALTERNATOR_NAME
