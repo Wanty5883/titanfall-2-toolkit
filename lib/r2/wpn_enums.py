@@ -40,11 +40,11 @@ class ALTERNATOR(object):
     MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
     MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
     MDL_1P_FILE = "ptpov_alternator_smg.mdl"
+    MDL_1P_FOLDER = r"models\weapons\alternator_smg"
     MDL_1P_V1_BIN = [(627836, b"\x6c"), (627851, b"\x6c")]
     MDL_1P_V1_BIN_VANILLA = [(627836, b"\x73"), (627851, b"\x73")]
     MDL_1P_V1_HASH = "d472844ee12583c26d98a9018f466213"
     MDL_1P_VANILLA_HASH = "e43a2964ec53f2012f388cb562f65d5b"
-    MDL_1P_FOLDER = r"models\weapons\alternator_smg"
     VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
     VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
     VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
@@ -70,164 +70,340 @@ class ALTERNATOR(object):
 
 
 class CAR101(object):
-    MDL_FILE_1P = "ptpov_car101.mdl"
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r"models\Weapons_R2\car_lmg"
+    MATERIAL_1P_FOLDER_VANILLA = r"models\Weapons_R2\car_smg"
+    MATERIAL_1P_NAME_MODDED = "car_lmg"
+    MATERIAL_1P_NAME_VANILLA = "CAR_smg"
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = "ptpov_car101.mdl"
+    MDL_1P_FOLDER = r"models\weapons\car101"
+    MDL_1P_V1_BIN = [(608664, b"\x6c"), (608668, b"\x63\x61\x72\x5f\x6c\x6d\x67")]
+    MDL_1P_V1_BIN_VANILLA = [(608664, b"\x73"), (608668, b"\x43\x41\x52\x5f\x73\x6d\x67")]
+    MDL_1P_V1_HASH = "ae94670fbad0a05c478fdf2343ad771d"
+    MDL_1P_VANILLA_HASH = "ffafbc744228083728f29200dd426eb0"
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    # 3P - Third person view
     MDL_FILE_3P = "w_car101.mdl"
-    MDL_FOLDER = "models\\weapons\\car101"
-    MDL_V1_1P = [(608664, b"\x6c"), (608668, b"\x63\x61\x72\x5f\x6c\x6d\x67")]
-    MDL_V1_1P_HASH = "ae94670fbad0a05c478fdf2343ad771d"
-    MDL_V1_1P_MATERIAL = r"models\Weapons_R2\car_lmg\car_lmg"
-    MDL_V1_1P_VANILLA = [(608664, b"\x73"), (608668, b"\x43\x41\x52\x5f\x73\x6d\x67")]
-    MDL_VANILLA_1P_HASH = "ffafbc744228083728f29200dd426eb0"
-    MDL_VANILLA_1P_MATERIAL = r"models\Weapons_R2\car_smg\CAR_smg"
-    VMT_FILE_1P = "car_lmg.vmt"
-    VMT_FOLDER = MDL_V1_1P_MATERIAL
+    # FRONTEND
     WPN_DESC = FRONTEND.WPN_CAR101_DESC
     WPN_LONGDESC = FRONTEND.WPN_CAR101_LONGDESC
     WPN_NAME = FRONTEND.WPN_CAR101_NAME
 
 
 class COLDWAR(object):
-    MDL_FILE_1P = "ptpov_pulse_lmg.mdl"
-    MDL_FILE_3P = "w_pulse_lmg.mdl"
-    MDL_FOLDER = "models\\weapons\\pulse_lmg"
-    MDL_V1_1P = [
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r"cold4_war"
+    MATERIAL_1P_FOLDER_VANILLA = r"pulse_lmg"
+    MATERIAL_1P_NAME_MODDED = "models\Weapons_R2\cold4_war"
+    MATERIAL_1P_NAME_VANILLA = "models\Weapons_R2\pulse_lmg"
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = "ptpov_pulse_lmg.mdl"
+    MDL_1P_FOLDER = r"models\weapons\pulse_lmg"
+    MDL_1P_V1_BIN = [
         (687508, b"\x63\x6f\x6c\x64\x34\x5f\x77\x61\x72"),
         (687518, b"\x63\x6f\x6c\x64\x34\x5f\x77\x61\x72")
     ]
-    MDL_V1_1P_HASH = "f37d7080bcd98aa7266c665613fb6f80"
-    MDL_V1_1P_MATERIAL = r"models\Weapons_R2\cold4_war\cold4_war"
-    MDL_V1_1P_VANILLA = [
+    MDL_1P_V1_BIN_VANILLA = [
         (687508, b"\x70\x75\x6c\x73\x65\x5f\x6c\x6d\x67"),
         (687518, b"\x70\x75\x6c\x73\x65\x5f\x6c\x6d\x67")
     ]
-    MDL_VANILLA_1P_HASH = "89402845be26fae9bc50830f59b09d82"
-    MDL_VANILLA_1P_MATERIAL = r"models\Weapons_R2\pulse_lmg\pulse_lmg"
-    VMT_FILE_1P = "cold4_war.vmt"
-    VMT_FOLDER = MDL_V1_1P_MATERIAL
+    MDL_1P_V1_HASH = "f37d7080bcd98aa7266c665613fb6f80"
+    MDL_1P_VANILLA_HASH = "89402845be26fae9bc50830f59b09d82"
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    # 3P - Third person view
+    MDL_FILE_3P = "w_pulse_lmg.mdl"
+    # FRONTEND
     WPN_DESC = FRONTEND.WPN_COLDWAR_DESC
     WPN_LONGDESC = FRONTEND.WPN_COLDWAR_LONGDESC
     WPN_NAME = FRONTEND.WPN_COLDWAR_NAME
 
 
 class DEVOTION(object):
-    MDL_FILE_1P = "ptpov_hemlock_br.mdl"
-    MDL_FILE_3P = "w_hemlock_br.mdl"
-    MDL_FOLDER = "models\\weapons\\hemlock_br"
-    MDL_V1_1P = [
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r"devotion_"
+    MATERIAL_1P_FOLDER_VANILLA = r"hemlok_br"
+    MATERIAL_1P_NAME_MODDED = "models\weapons\devotion_"
+    MATERIAL_1P_NAME_VANILLA = "models\weapons\hemlok_br"
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = "ptpov_hemlock_br.mdl"
+    MDL_1P_FOLDER = r"models\weapons\hemlock_br"
+    MDL_1P_V1_BIN = [
         (757105, b"\x64\x65\x76\x6f\x74\x69\x6f\x6e\x5f"),
         (757115, b"\x64\x65\x76\x6f\x74\x69\x6f\x6e\x5f")
     ]
-    MDL_V1_1P_HASH = "2e7825b8f4d4015f8b3c7b684d36395c"
-    MDL_V1_1P_MATERIAL = r"models\weapons\devotion_\devotion_"
-    MDL_V1_1P_VANILLA = [
+    MDL_1P_V1_BIN_VANILLA = [
         (757105, b"\x68\x65\x6d\x6c\x6f\x6b\x5f\x62\x72"),
         (757115, b"\x68\x65\x6d\x6c\x6f\x6b\x5f\x62\x72")
     ]
-    MDL_VANILLA_1P_HASH = "5aef9f28430a805eb1172115ae4cfc0f"
-    MDL_VANILLA_1P_MATERIAL = r"models\weapons\hemlok_br\hemlok_br"
-    VMT_FILE_1P = "devotion_.vmt"
-    VMT_FOLDER = MDL_V1_1P_MATERIAL
+    MDL_1P_V1_HASH = "2e7825b8f4d4015f8b3c7b684d36395c"
+    MDL_1P_VANILLA_HASH = "5aef9f28430a805eb1172115ae4cfc0f"
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    # 3P - Third person view
+    MDL_FILE_3P = "w_hemlock_br.mdl"
+    # FRONTEND
     WPN_DESC = FRONTEND.WPN_DEVOTION_DESC
     WPN_LONGDESC = FRONTEND.WPN_DEVOTION_LONGDESC
     WPN_NAME = FRONTEND.WPN_DEVOTION_NAME
 
 
 class DOUBLETAKE(object):
-    MDL_FILE_1P = "ptpov_doubletake.mdl"
-    MDL_FILE_3P = "w_doubletake.mdl"
-    MDL_FOLDER = "models\\weapons\\doubletake"
-    MDL_V1_1P = [
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r"tripletake"
+    MATERIAL_1P_FOLDER_VANILLA = r"doubletake"
+    MATERIAL_1P_NAME_MODDED = "models\Weapons_R2\tripletake_sr"
+    MATERIAL_1P_NAME_VANILLA = "models\Weapons_R2\doubletake_sr"
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = "ptpov_doubletake.mdl"
+    MDL_1P_FOLDER = r"models\weapons\doubletake"
+    MDL_1P_V1_BIN = [
         (942419, b"\x74\x72\x69\x70\x6c\x65\x74\x61\x6b\x65\x5f\x73\x72"),
         (942433, b"\x74\x72\x69\x70\x6c\x65\x74\x61\x6b\x65")
     ]
-    MDL_V1_1P_HASH = "d75873936045bb813039ca86160b0d1b"
-    MDL_V1_1P_MATERIAL = r"models\Weapons_R2\tripletake_sr\tripletake"
-    MDL_V1_1P_VANILLA = [
+    MDL_1P_V1_BIN_VANILLA = [
         (942419, b"\x64\x6f\x75\x62\x6c\x65\x74\x61\x6b\x65\x5f\x73\x72"),
         (942433, b"\x64\x6f\x75\x62\x6c\x65\x74\x61\x6b\x65")
     ]
-    MDL_VANILLA_1P_HASH = "a6cd5d0fab1764cf9158cce06a71f6ff"
-    MDL_VANILLA_1P_MATERIAL = r"models\Weapons_R2\doubletake_sr\doubletake"
-    VMT_FILE_1P = "tripletake.vmt"
-    VMT_FOLDER = MDL_V1_1P_MATERIAL
+    MDL_1P_V1_HASH = "d75873936045bb813039ca86160b0d1b"
+    MDL_1P_VANILLA_HASH = "a6cd5d0fab1764cf9158cce06a71f6ff"
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    # 3P - Third person view
+    MDL_FILE_3P = "w_doubletake.mdl"
+    # FRONTEND
     WPN_DESC = FRONTEND.WPN_DOUBLETAKE_DESC
     WPN_LONGDESC = FRONTEND.WPN_DOUBLETAKE_LONGDESC
     WPN_NAME = FRONTEND.WPN_DOUBLETAKE_NAME
 
 
 class EPG(object):
-    MDL_FILE_1P = "ptpov_epg.mdl"
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r"epj"
+    MATERIAL_1P_FOLDER_VANILLA = r"epg"
+    MATERIAL_1P_NAME_MODDED = "models\Weapons_R2\epj"
+    MATERIAL_1P_NAME_VANILLA = "models\Weapons_R2\epg"
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = "ptpov_epg.mdl"
+    MDL_1P_FOLDER = r"models\weapons\epg"
+    MDL_1P_V1_BIN = [(610289, b"\x65\x70\x6a"), (610293, b"\x65\x70\x6a")]
+    MDL_1P_V1_BIN_VANILLA = [(610289, b"\x65\x70\x67"), (610293, b"\x65\x70\x67")]
+    MDL_1P_V1_HASH = "22c2c99fb5a846dfc7e2f1d039438b46"
+    MDL_1P_VANILLA_HASH = "a94e174bdb8dfea78b779dae66ef3cdf"
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    # 3P - Third person view
     MDL_FILE_3P = "w_epg.mdl"
-    MDL_FOLDER = "models\\weapons\\epg"
-    MDL_V1_1P = [(610289, b"\x65\x70\x6a"), (610293, b"\x65\x70\x6a")]
-    MDL_V1_1P_HASH = "22c2c99fb5a846dfc7e2f1d039438b46"
-    MDL_V1_1P_MATERIAL = r"models\Weapons_R2\epj\epj"
-    MDL_V1_1P_VANILLA = [(610289, b"\x65\x70\x67"), (610293, b"\x65\x70\x67")]
-    MDL_VANILLA_1P_HASH = "a94e174bdb8dfea78b779dae66ef3cdf"
-    MDL_VANILLA_1P_MATERIAL = r"models\Weapons_R2\epg\epg"
-    VMT_FILE_1P = "epj.vmt"
-    VMT_FOLDER = MDL_V1_1P_MATERIAL
+    # FRONTEND
     WPN_DESC = FRONTEND.WPN_EPG_DESC
     WPN_LONGDESC = FRONTEND.WPN_EPG_LONGDESC
     WPN_NAME = FRONTEND.WPN_EPG_NAME
 
 
 class EVA8(object):
-    MDL_FILE_1P = "ptpov_w1128.mdl"
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r"eva7_stgn"
+    MATERIAL_1P_FOLDER_VANILLA = r"eva8_stgn"
+    MATERIAL_1P_NAME_MODDED = "models\Weapons_R2\eva7_stgn"
+    MATERIAL_1P_NAME_VANILLA = "models\Weapons_R2\eva8_stgn"
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = "ptpov_w1128.mdl"
+    MDL_1P_FOLDER = r"models\weapons\w1128"
+    MDL_1P_V1_BIN = [(563204, b"\x37"), (563214, b"\x37")]
+    MDL_1P_V1_BIN_VANILLA = [(563204, b"\x38"), (563214, b"\x38")]
+    MDL_1P_V1_HASH = "1425b759dfd05dc59cdf804d74d57f67"
+    MDL_1P_VANILLA_HASH = "f09961f7d9bb15b12ac3aed23b8b5aac"
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    # 3P - Third person view
     MDL_FILE_3P = "w_w1128.mdl"
-    MDL_FOLDER = "models\\weapons\\w1128"
-    MDL_V1_1P = [(563204, b"\x37"), (563214, b"\x37")]
-    MDL_V1_1P_HASH = "1425b759dfd05dc59cdf804d74d57f67"
-    MDL_V1_1P_MATERIAL = r"models\Weapons_R2\eva7_stgn\eva7_stgn"
-    MDL_V1_1P_VANILLA = [(563204, b"\x38"), (563214, b"\x38")]
-    MDL_VANILLA_1P_HASH = "f09961f7d9bb15b12ac3aed23b8b5aac"
-    MDL_VANILLA_1P_MATERIAL = r"models\Weapons_R2\eva8_stgn\eva8_stgn"
-    VMT_FILE_1P = "eva8_stgn.vmt"
-    VMT_FOLDER = MDL_V1_1P_MATERIAL
+    # FRONTEND
     WPN_DESC = FRONTEND.WPN_EVA8_DESC
     WPN_LONGDESC = FRONTEND.WPN_EVA8_LONGDESC
     WPN_NAME = FRONTEND.WPN_EVA8_NAME
 
 
 class FLATLINE(object):
-    MDL_FILE_1P = "ptpov_vinson.mdl"
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r"flatline_arf"
+    MATERIAL_1P_FOLDER_VANILLA = r"vinson_rifle"
+    MATERIAL_1P_NAME_MODDED = "models\weapons\vinson"
+    MATERIAL_1P_NAME_VANILLA = "models\weapons\vinson"
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = "ptpov_vinson.mdl"
+    MDL_1P_FOLDER = r"models\weapons\vinson"
+    MDL_1P_V1_BIN = [(639230, b"\x66\x6c\x61\x74\x6c\x69\x6e\x65\x5f\x61\x72\x66")]
+    MDL_1P_V1_BIN_VANILLA = [(639230, b"\x76\x69\x6e\x73\x6f\x6e\x5f\x72\x69\x66\x6c\x65")]
+    MDL_1P_V1_HASH = "d45a13b7b66eaa4e59a99d34fc8f2829"
+    MDL_1P_VANILLA_HASH = "d85f1d546dec75fad24e884bd6ab2101"
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    # 3P - Third person view
     MDL_FILE_3P = "w_vinson.mdl"
-    MDL_FOLDER = "models\\weapons\\vinson"
-    MDL_V1_1P = [
-        (639230, b"\x66\x6c\x61\x74\x6c\x69\x6e\x65\x5f\x61\x72\x66")
-    ]
-    MDL_V1_1P_HASH = "d45a13b7b66eaa4e59a99d34fc8f2829"
-    MDL_V1_1P_MATERIAL = r"models\weapons\vinson\flatline_arf"
-    MDL_V1_1P_VANILLA = [
-        (639230, b"\x76\x69\x6e\x73\x6f\x6e\x5f\x72\x69\x66\x6c\x65")
-    ]
-    MDL_VANILLA_1P_HASH = "d85f1d546dec75fad24e884bd6ab2101"
-    MDL_VANILLA_1P_MATERIAL = r"models\weapons\vinson\vinson_rifle"
-    VMT_FILE_1P = "flatline_arf.vmt"
-    VMT_FOLDER = MDL_V1_1P_MATERIAL
+    # FRONTEND
     WPN_DESC = FRONTEND.WPN_FLATLINE_DESC
     WPN_LONGDESC = FRONTEND.WPN_FLATLINE_LONGDESC
     WPN_NAME = FRONTEND.WPN_FLATLINE_NAME
 
 
 class G2A5(object):
-    MDL_FILE_1P = "ptpov_g2a4.mdl"
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r"g2a5_ar"
+    MATERIAL_1P_FOLDER_VANILLA = r"g2a4_ar"
+    MATERIAL_1P_NAME_MODDED = "models\Weapons_R2\g2a5_ar"
+    MATERIAL_1P_NAME_VANILLA = "models\Weapons_R2\g2a4_ar"
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = "ptpov_g2a4.mdl"
+    MDL_1P_FOLDER = r"models\weapons\g2"
+    MDL_1P_V1_BIN = [(616532, b"\x35"), (616540, b"\x35")]
+    MDL_1P_V1_BIN_VANILLA = [(616532, b"\x34"), (616540, b"\x34")]
+    MDL_1P_V1_HASH = "ede7dad905e40d2b3aa4982562e1180f"
+    MDL_1P_VANILLA_HASH = "c47c07d1646a6f7921f34e1d38ebbe69"
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    # 3P - Third person view
     MDL_FILE_3P = "w_g2a4.mdl"
-    MDL_FOLDER = "models\\weapons\\g2"
-    MDL_V1_1P = [(616532, b"\x35"), (616540, b"\x35")]
-    MDL_V1_1P_HASH = "ede7dad905e40d2b3aa4982562e1180f"
-    MDL_V1_1P_MATERIAL = r"models\Weapons_R2\g2a5_ar\g2a5_ar"
-    MDL_V1_1P_VANILLA = [(616532, b"\x34"), (616540, b"\x34")]
-    MDL_VANILLA_1P_HASH = "c47c07d1646a6f7921f34e1d38ebbe69"
-    MDL_VANILLA_1P_MATERIAL = r"models\Weapons_R2\g2a4_ar\g2a4_ar"
-    VMT_FILE_1P = "g2a5_ar.vmt"
-    VMT_FOLDER = MDL_V1_1P_MATERIAL
+    # FRONTEND
     WPN_DESC = FRONTEND.WPN_G2A5_DESC
     WPN_LONGDESC = FRONTEND.WPN_G2A5_LONGDESC
     WPN_NAME = FRONTEND.WPN_G2A5_NAME
 
 
 class HEMLOK(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    # 3P - Third person view
     MDL_FILE_1P = "ptpov_hemlok.mdl"
     MDL_FILE_3P = "w_hemlok.mdl"
     MDL_FOLDER = "models\\weapons\\m1a1_hemlok"
@@ -245,6 +421,34 @@ class HEMLOK(object):
 
 
 class KRABER(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    # 3P - Third person view
     MDL_FILE_1P = "ptpov_at_rifle.mdl"
     MDL_FILE_3P = "w_at_rifle.mdl"
     MDL_FOLDER = "models\\weapons\\at_rifle"
@@ -262,6 +466,34 @@ class KRABER(object):
 
 
 class LONGBOW(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "ptpov_rspn101_dmr.mdl"
     MDL_FILE_3P = "w_rspn101_dmr.mdl"
     MDL_FOLDER = "models\\weapons\\rspn101_dmr"
@@ -279,6 +511,34 @@ class LONGBOW(object):
 
 
 class LSTAR(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "ptpov_lstar.mdl"
     MDL_FILE_3P = "w_lstar.mdl"
     MDL_FILE_HP = "w_lstar_stow.mdl"
@@ -298,6 +558,34 @@ class LSTAR(object):
 
 
 class MASTIFF(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "ptpov_mastiff.mdl"
     MDL_FILE_3P = "w_mastiff.mdl"
     MDL_FOLDER = "models\\weapons\\mastiff_stgn"
@@ -315,6 +603,34 @@ class MASTIFF(object):
 
 
 class R101(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "ptpov_r101_sfp.mdl"
     MDL_FILE_3P = "w_r101_sfp.mdl"
     MDL_FILE_HP = "w_r101_sfp_stow.mdl"
@@ -333,6 +649,34 @@ class R101(object):
 
 
 class R201(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "ptpov_rspn101.mdl"
     MDL_FILE_3P = "w_rspn101.mdl"
     MDL_FILE_HP = "w_rspn101_stow.mdl"
@@ -351,6 +695,34 @@ class R201(object):
 
 
 class R97(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "ptpov_r97.mdl"
     MDL_FILE_3P = "w_r97.mdl"
     MDL_FOLDER = "models\\weapons\\r97"
@@ -368,6 +740,34 @@ class R97(object):
 
 
 class SMR(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "ptpov_ARL.mdl"
     MDL_FILE_3P = "w_ARL.mdl"
     MDL_FOLDER = "models\\weapons\\auto_rocket_launcher_ARL"
@@ -385,6 +785,34 @@ class SMR(object):
 
 
 class SOFTBALL(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "ptpov_softball_at.mdl"
     MDL_FILE_3P = "w_softball_at.mdl"
     MDL_FOLDER = "models\\weapons\\softball_at"
@@ -402,6 +830,34 @@ class SOFTBALL(object):
 
 
 class SPITFIRE(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "ptpov_lmg_hemlok.mdl"
     MDL_FILE_3P = "w_lmg_hemlok.mdl"
     MDL_FOLDER = "models\\weapons\\lmg_hemlok"
@@ -419,6 +875,34 @@ class SPITFIRE(object):
 
 
 class VOLT(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "ptpov_hemlok_smg.mdl"
     MDL_FILE_3P = "w_hemlok_smg.mdl"
     MDL_FOLDER = "models\\weapons\\hemlok_smg"
@@ -457,6 +941,34 @@ $$ |
 
 
 class MOZAMBIQUE(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "ptpov_pstl_sa3.mdl"
     MDL_FILE_3P = "w_pstl_sa3.mdl"
     MDL_FOLDER = "models\\weapons\\pstl_sa3"
@@ -480,6 +992,34 @@ class MOZAMBIQUE(object):
 
 
 class P2016(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "ptpov_p2011.mdl"
     MDL_FILE_3P = "w_p2011.mdl"
     MDL_FOLDER = "models\\weapons\\p2011"
@@ -497,6 +1037,34 @@ class P2016(object):
 
 
 class RE45(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "ptpov_p2011_auto.mdl"
     MDL_FILE_3P = "w_p2011_auto.mdl"
     MDL_FOLDER = "models\\weapons\\p2011_auto"
@@ -520,6 +1088,34 @@ class RE45(object):
 
 
 class SMARTPISTOL(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "ptpov_p2011sp.mdl"
     MDL_FILE_3P = "w_p2011sp.mdl"
     MDL_FOLDER = "models\\weapons\\p2011sp"
@@ -543,6 +1139,34 @@ class SMARTPISTOL(object):
 
 
 class WINGMANB3(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "ptpov_b3wing.mdl"
     MDL_FILE_3P = "w_b3wing.mdl"
     MDL_FOLDER = "models\\weapons\\b3wing"
@@ -560,6 +1184,34 @@ class WINGMANB3(object):
 
 
 class WINGMANN(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "ptpov_wingman_elite.mdl"
     MDL_FILE_3P = "w_wingman_elite.mdl"
     MDL_FOLDER = "models\\weapons\\wingman_elite"
@@ -595,6 +1247,34 @@ $$  __$$ |$$ |  $$ | $$ |$$\ $$ |         $$ |$$\ $$ |  $$ |$$\ $$  __$$ |$$ |  
 
 
 class ARCHER(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "ptpov_law.mdl"
     MDL_FILE_3P = "w_shoulder_rocket_SRAM_v2.mdl"
     MDL_FILE_HP = "w_rocket_SRAM_v2_stow.mdl"
@@ -613,6 +1293,34 @@ class ARCHER(object):
 
 
 class DEFENDER(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "ptpov_defender.mdl"
     MDL_FILE_3P = "w_defender.mdl"
     MDL_FILE_HP = "w_defender_stow.mdl"
@@ -637,6 +1345,34 @@ class DEFENDER(object):
 
 
 class MGL(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "ptpov_mgl_at.mdl"
     MDL_FILE_3P = "w_mgl_at.mdl"
     MDL_FILE_HP = "w_mgl_at_stow.mdl"
@@ -655,6 +1391,34 @@ class MGL(object):
 
 
 class THUNDERBOLT(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "ptpov_arc_launcher.mdl"
     MDL_FILE_3P = "w_arc_launcher.mdl"
     MDL_FILE_HP = "w_arc_launcher_stow.mdl"
@@ -707,6 +1471,34 @@ $$ |                                                      \$$$$$$  |
 
 
 class LEADWALL(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "atpov_titan_triple_threat.mdl"
     MDL_FILE_3P = "w_titan_triple_threat.mdl"
     MDL_FOLDER = "models\\weapons\\titan_triple_threat"
@@ -730,6 +1522,34 @@ class LEADWALL(object):
 
 
 class PARTICLEACCELERATOR(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "atpov_titan_particle_accelerator.mdl"
     MDL_FILE_3P = "w_titan_particle_accelerator.mdl"
     MDL_FOLDER = "models\\weapons\\titan_particle_accelerator"
@@ -753,6 +1573,34 @@ class PARTICLEACCELERATOR(object):
 
 
 class PREDATORCANNON(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "atpov_titan_predator.mdl"
     MDL_FILE_3P = "w_titan_predator.mdl"
     MDL_FOLDER = "models\\weapons\\titan_predator"
@@ -776,6 +1624,34 @@ class PREDATORCANNON(object):
 
 
 class RAILGUN(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "atpov_titan_sniper_rifle.mdl"
     MDL_FILE_3P = "w_titan_sniper_rifle.mdl"
     MDL_FOLDER = "models\\weapons\\atpov_titan_sniper_rifle"
@@ -794,6 +1670,34 @@ class RAILGUN(object):
 
 
 class THERMITECANNON(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "atpov_titan_thermite_launcher.mdl"
     MDL_FILE_3P = "w_titan_thermite_launcher.mdl"
     MDL_FOLDER = "models\\weapons\\titan_thermite_launcher"
@@ -811,6 +1715,34 @@ class THERMITECANNON(object):
 
 
 class THR40MM(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "atpov_thr_40mm.mdl"
     MDL_FILE_3P = "w_thr_40mm.mdl"
     MDL_FOLDER = "models\\weapons\\thr_40mm"
@@ -834,6 +1766,34 @@ class THR40MM(object):
 
 
 class XO16(object):
+    # 1P - First person view
+    MATERIAL_1P_FOLDER_MODDED = r""
+    MATERIAL_1P_FOLDER_VANILLA = r""
+    MATERIAL_1P_NAME_MODDED = ""
+    MATERIAL_1P_NAME_VANILLA = ""
+    MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+    MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+    MDL_1P_FILE = ".mdl"
+    MDL_1P_FOLDER = r""
+    MDL_1P_V1_BIN = []
+    MDL_1P_V1_BIN_VANILLA = []
+    MDL_1P_V1_HASH = ""
+    MDL_1P_VANILLA_HASH = ""
+    VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+    VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+    VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+    VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+    VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+
     MDL_FILE_1P = "atpov_xo16shorty.mdl"
     MDL_FILE_3P = "w_xo16shorty.mdl"
     MDL_FOLDER = "models\\weapons\\titan_xo16_shorty"
@@ -856,10 +1816,30 @@ class XO16(object):
     WPN_NAME = FRONTEND.WPN_XO16_NAME
 
 
-# class (object):
-#     MDL_V1_1P = [[, b"\x"], [, b"\x"]]
-#     MDL_V1_1P_HASH = ""
-#     MDL_V1_1P_MATERIAL = r""
-#     MDL_V1_1P_VANILLA = [[, b"\x"], [, b"\x"]]
-#     MDL_VANILLA_1P_HASH = ""
-#     MDL_VANILLA_1P_MATERIAL = r""
+# # 1P - First person view
+# MATERIAL_1P_FOLDER_MODDED = r""
+# MATERIAL_1P_FOLDER_VANILLA = r""
+# MATERIAL_1P_NAME_MODDED = ""
+# MATERIAL_1P_NAME_VANILLA = ""
+# MATERIAL_1P_PATH_MODDED = r"{0}\{1}".format(MATERIAL_1P_FOLDER_MODDED, MATERIAL_1P_NAME_MODDED)
+# MATERIAL_1P_PATH_VANILLA = r"{0}\{1}".format(MATERIAL_1P_FOLDER_VANILLA, MATERIAL_1P_NAME_VANILLA)
+# MDL_1P_FILE = ".mdl"
+# MDL_1P_FOLDER = r""
+# MDL_1P_V1_BIN = []
+# MDL_1P_V1_BIN_VANILLA = []
+# MDL_1P_V1_HASH = ""
+# MDL_1P_VANILLA_HASH = ""
+# VMT_1P_FILE = "{0}.vmt".format(MATERIAL_1P_NAME_MODDED)
+# VMT_1P_FOLDER = r"materials\{0}".format(MATERIAL_1P_FOLDER_MODDED)
+# VMT_1P_PATH = r"{0}\{1}".format(VMT_1P_FOLDER, VMT_1P_FILE)
+# VTF_1P_AMBIENTOCC = "{0}_ambiant_occ.vtf".format(MATERIAL_1P_NAME_MODDED)
+# VTF_1P_BASE = "{0}_color.vtf".format(MATERIAL_1P_NAME_MODDED)
+# VTF_1P_BASE2 = "{0}_color2.vtf".format(MATERIAL_1P_NAME_MODDED)
+# VTF_1P_BLENDMODULATE = "{0}_blend.vtf".format(MATERIAL_1P_NAME_MODDED)
+# VTF_1P_BUMP = "{0}_normal.vtf".format(MATERIAL_1P_NAME_MODDED)
+# VTF_1P_CORNEA = "{0}_cornea.vtf".format(MATERIAL_1P_NAME_MODDED)
+# VTF_1P_DETAIL = "{0}_detail.vtf".format(MATERIAL_1P_NAME_MODDED)
+# VTF_1P_ENV = "{0}_env.vtf".format(MATERIAL_1P_NAME_MODDED)
+# VTF_1P_ENVMASK = "{0}_env_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
+# VTF_1P_PHONGEXPONENT = "{0}_phong.vtf".format(MATERIAL_1P_NAME_MODDED)
+# VTF_1P_SELFILLUM = "{0}_illum_mask.vtf".format(MATERIAL_1P_NAME_MODDED)
