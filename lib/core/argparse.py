@@ -48,7 +48,7 @@ def argAction(args, parser):
 def subparser_wpn(subparser):
     parser_wpn = subparser.add_parser("wpn", help="Weapons")
     parser_wpn.set_defaults(parser_wpn=True)
-    wpn_enums = attr_wpnList()
+    wpn_enums = attr_wpnList()  # Get wpn attribute names
 
     wpnMDL = parser_wpn.add_argument_group(
         "3D Models",

@@ -17,19 +17,19 @@ def wpn_hashMDL(rootDir, fileType, fileTarget):
     Weapon var has to be a class name from "wpn_enums.py".
     """
     if fileType == WPN.TYPE_1P:
-        fileType = "MDL_FILE_1P"  # Attribute for first person model
-        hashVanilla = "MDL_VANILLA_1P_HASH"
-        hashV1 = "MDL_V1_1P_HASH"
+        fileType = "MDL_1P_FILE"  # Attribute for first person model
+        hashVanilla = "MDL_1P_VANILLA_HASH"
+        hashV1 = "MDL_1P_V1_HASH"
     elif fileType == WPN.TYPE_3P:
-        fileType = "MDL_FILE_3P"  # Attribute for third person model
+        fileType = ""  # Attribute for third person model
     elif fileType == WPN.TYPE_HP:
-        fileType = "MDL_FILE_HP"  # Attribute for holster view model
+        fileType = ""  # Attribute for holster view model
     elif fileType == WPN.TYPE_MP:
-        fileType = "MDL_FILE_MP"  # Attribute for menus view model
+        fileType = ""  # Attribute for menus view model
     else:  # Just a bulletproof, argparse prevent that
         print("Error")  # TODO proper logging
         sys.exit(0)
-    fileFolder = "MDL_FOLDER"
+    fileFolder = "MDL_1P_FOLDER"
     wpn_enums = attr_wpnList()
 
     fileName = getattr(getattr(ENUMS_WPN, fileTarget), fileType)
@@ -63,26 +63,26 @@ def wpn_convertMDL(rootDir, fileType, fileVersion, fileTarget, structTarget):
     usefull when model swap has been done on the given file.
     """
     if fileType == WPN.TYPE_1P:
-        fileType = "MDL_FILE_1P"  # Attribute for first person model
+        fileName = "MDL_1P_FILE"  # Attribute for first person model
         if fileVersion == WPN.VERSION_1:
-            fileVersion = "MDL_V1_1P"  # Attribute for bin operation
+            fileBinOperation = "MDL_1P_V1_BIN"  # Attribute for bin operation
         elif fileVersion == WPN.VERSION_VANILLA:
-            fileVersion = "MDL_V1_1P_VANILLA"  # Attribute for bin operation
-        fileFolder = "MDL_FOLDER"  # TODO make exception from here
+            fileBinOperation = "MDL_V1_1P_VANILLA"  # Attribute for bin operation
+        fileFolder = "MDL_1P_FOLDER"  # TODO make exception from here
     elif fileType == WPN.TYPE_3P:
-        fileType = "MDL_FILE_3P"  # Attribute for third person model
+        fileName = "MDL_FILE_3P"  # Attribute for third person model
     elif fileType == WPN.TYPE_HP:
-        fileType = "MDL_FILE_HP"  # Attribute for holster view model
+        fileName = "MDL_FILE_HP"  # Attribute for holster view model
     elif fileType == WPN.TYPE_MP:
-        fileType = "MDL_FILE_MP"  # Attribute for menus view model
+        fileName = "MDL_FILE_MP"  # Attribute for menus view model
     else:  # Just a bulletproof, argparse prevent that
         print("Error")  # TODO proper logging
         sys.exit(0)
 
-    fileName = getattr(getattr(ENUMS_WPN, fileTarget), fileType)
+    fileName = getattr(getattr(ENUMS_WPN, fileTarget), fileName)
     fileDir = getattr(getattr(ENUMS_WPN, fileTarget), fileFolder)
     filePath = "{0}\\{1}\\{2}".format(rootDir, fileDir, fileName)
-    fileMod = getattr(getattr(ENUMS_WPN, structTarget), fileVersion)
+    fileMod = getattr(getattr(ENUMS_WPN, structTarget), fileBinOperation)
     with open(filePath, "r+b") as file:
         for offset, bytes in fileMod:
             file.seek(offset)
