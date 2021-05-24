@@ -1,3 +1,8 @@
+class API(object):
+    SERVER_NAME = "r2_toolkit"
+    SERVER_PORT = 5883
+
+
 class TEXTURE(object):
     AMBIENTOCC = "ambiant_occ"
     BASE = "color"
