@@ -21,7 +21,6 @@ def argParser(argv=None):
         "--root-dir",
         dest="rootDirectory",
         action="store",
-        required=True,
         help="Set the extracted VPK directory"
     )
     subparser = parser.add_subparsers(dest="command")
@@ -37,10 +36,6 @@ def argAction(args, parser):
     if not args.command:  # Display help message if parser is not used
         parser.parse_args(["--help"])
         sys.exit(0)
-    if not args.rootDirectory:  # Display help message if no rootDirectory
-        logger.info("No root directory defined")
-        parser.parse_args(["--help"])
-        sys.exit(0)
     if args.command == "wpn":
         argSubaction_wpn(args, parser)
 
@@ -54,6 +49,7 @@ def subparser_wpn(subparser):
         "3D Models",
         "Commands for weapon 3D models (.mdl) file manipulation"
     )
+    # Function arguments
     wpnMDL.add_argument(
         "--wpn-convertMDL",
         dest="wpnConvertMDL",
@@ -66,6 +62,7 @@ def subparser_wpn(subparser):
         action="store_true",
         help="Hash a weapon model file"
     )
+    # General arguments
     wpnMDL.add_argument(
         "--wpn-fileType",
         dest="wpnFileType",
@@ -95,7 +92,7 @@ def subparser_wpn(subparser):
     )
     wpnMDL.add_argument(
         "--wpn-structTarget",
-        dest="wpnstructTarget",
+        dest="wpnStructTarget",
         choices=wpn_enums,
         help="Choose the 3D model struct target"
     )
@@ -103,6 +100,8 @@ def subparser_wpn(subparser):
 
 def argSubaction_wpn(args, parser):
     if args.wpnConvertMDL:  # Convert weapon model file
+        if not args.rootDirectory:
+            logger.critical("Root directory not defined")
         if not args.wpnFileType:
             logger.critical("Weapon file type is not defined")
             sys.exit(0)
@@ -112,7 +111,7 @@ def argSubaction_wpn(args, parser):
         if not args.wpnFileTarget:
             logger.critical("Weapon file target is not defined")
             sys.exit(0)
-        if not args.wpnstructTarget:
+        if not args.wpnStructTarget:
             logger.critical("Weapon file structure is not defined")
             sys.exit(0)
         wpn_convertMDL(
@@ -120,8 +119,10 @@ def argSubaction_wpn(args, parser):
             args.wpnFileType,
             args.wpnFileVersion,
             args.wpnFileTarget,
-            args.wpnstructTarget)
+            args.wpnStructTarget)
     if args.wpnHashMDL:
+        if not args.rootDirectory:
+            logger.critical("Root directory not defined")
         if not args.wpnFileType:
             logger.critical("Weapon file type is not defined")
             sys.exit(0)
