@@ -71,7 +71,7 @@ def wpn_convertMDL(rootDir, fileType, fileVersion, fileTarget, structTarget):
         if fileVersion == WPN.VERSION_1:
             fileBinOperation = "MDL_1P_V1_BIN"  # Attribute for bin operation
         elif fileVersion == WPN.VERSION_VANILLA:
-            fileBinOperation = "MDL_V1_1P_VANILLA"  # Attribute for bin operation
+            fileBinOperation = "MDL_1P_V1_BIN_VANILLA"  # Attribute for bin operation
         fileFolder = "MDL_1P_FOLDER"  # TODO make exception from here
     elif fileType == WPN.TYPE_3P:
         fileName = "MDL_FILE_3P"  # Attribute for third person model
