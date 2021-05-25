@@ -38,7 +38,7 @@ def wpnArgs():
     args.add_argument("wpnFileType", type=str, help="Choose the 3D model file type (1P, 3P, etc.)")
     args.add_argument("wpnFileVersion", type=str, help="Choose the 3D model file version")
     args.add_argument("wpnFileTarget", type=str, help="Choose the 3D model target file")
-    args.add_argument("wpnstructTarget", type=str, help="Choose the 3D model struct target")
+    args.add_argument("wpnStructTarget", type=str, help="Choose the 3D model struct target")
     return(args.parse_args())
 
 

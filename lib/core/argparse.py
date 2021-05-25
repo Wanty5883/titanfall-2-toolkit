@@ -92,7 +92,7 @@ def subparser_wpn(subparser):
     )
     wpnMDL.add_argument(
         "--wpn-structTarget",
-        dest="wpnstructTarget",
+        dest="wpnStructTarget",
         choices=wpn_enums,
         help="Choose the 3D model struct target"
     )
@@ -111,7 +111,7 @@ def argSubaction_wpn(args, parser):
         if not args.wpnFileTarget:
             logger.critical("Weapon file target is not defined")
             sys.exit(0)
-        if not args.wpnstructTarget:
+        if not args.wpnStructTarget:
             logger.critical("Weapon file structure is not defined")
             sys.exit(0)
         wpn_convertMDL(
@@ -119,7 +119,7 @@ def argSubaction_wpn(args, parser):
             args.wpnFileType,
             args.wpnFileVersion,
             args.wpnFileTarget,
-            args.wpnstructTarget)
+            args.wpnStructTarget)
     if args.wpnHashMDL:
         if not args.rootDirectory:
             logger.critical("Root directory not defined")
