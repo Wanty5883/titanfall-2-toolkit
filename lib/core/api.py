@@ -22,7 +22,8 @@ def apiServer():
     api = Api(app)
 
     api.add_resource(WeaponInfo, "/weapon/<string:weaponName>")
-    api.add_resource(WeaponModding, "/weapon")
+    api.add_resource(WeaponConvertMDL, "/weapon/convertmdl")
+    api.add_resource(WeaponHashMDL, "/weapon/hashmdl")
 
     app.run(host="localhost", port=API.SERVER_PORT, debug=True)
 
@@ -51,13 +52,10 @@ class WeaponInfo(Resource):
                 return(r)
 
 
-def wpnArgsMods():
+def wpnArgs():
     args = reqparse.RequestParser()
     # Mandaroty arguments
     args.add_argument("rootDirectory", type=str, help="Set the extracted VPK directory", required=True)
-    # Function arguments
-    args.add_argument("wpnConvertMDL", type=bool, help="Convert a weapon mdl to a defined version")
-    args.add_argument("wpnHashMDL", type=bool, help="Hash a weapon model file")
     # General arguments
     args.add_argument("wpnFileType", type=str, help="Choose the 3D model file type (1P, 3P, etc.)")
     args.add_argument("wpnFileVersion", type=str, help="Choose the 3D model file version")
@@ -66,12 +64,69 @@ def wpnArgsMods():
     return(args.parse_args())
 
 
-class WeaponModding(Resource):
-    def get(self):
-        pass
-
+class WeaponConvertMDL(Resource):
     def post(self):
-        args = wpnArgsMods()
+        args = wpnArgs()
+
+        # Check if argument is correct
+        # FILE TYPE
+        if args["wpnFileType"]:
+            conditions = [WPN.TYPE_1P, WPN.TYPE_3P, WPN.TYPE_HP, WPN.TYPE_MP]
+            if args["wpnFileType"] not in conditions:
+                text = "wpnFileType is unknown"
+                logger.critical(text)
+                logger.critical(args["wpnFileType"])
+                return({"error": text})
+        elif not args["wpnFileType"]:
+            text = "wpnFileType is not defined"
+            logger.critical(text)
+            return({"error": text})
+        # FILE VERSION
+        if args["wpnFileVersion"]:
+            conditions = [WPN.VERSION_1, WPN.VERSION_2, WPN.VERSION_VANILLA]
+            if args["wpnFileVersion"] not in conditions:
+                text = "wpnFileVersion is unknown"
+                logger.critical(text)
+                logger.critical(args["wpnFileVersion"])
+                return({"error": text})
+        elif not args["wpnFileVersion"]:
+            logger.critical("wpnFileVersion is not defined")
+            sys.exit(0)
+        # FILE TARGET
+        if args["wpnFileTarget"]:
+            if not args["wpnFileTarget"] in attr_wpnList():
+                text = "wpnFileTarget is unknown"
+                logger.critical(text)
+                logger.critical(args["wpnFileTarget"])
+                return({"error": text})
+        if not args["wpnFileTarget"]:
+            text = "wpnFileTarget is not defined"
+            logger.critical(text)
+            return({"error": text})
+        # STRUCT TARGET
+        if args["wpnStructTarget"]:
+            if not args["wpnStructTarget"] in attr_wpnList():
+                text = "wpnStructTarget is unknown"
+                logger.critical(text)
+                logger.critical(args["wpnStructTarget"])
+                return({"error": text})
+        if not args["wpnStructTarget"]:
+            text = "wpnStructTarget is not defined"
+            logger.critical(text)
+            return({"error": text})
+        wpn_convertMDL(
+            args["rootDirectory"],
+            args["wpnFileType"],
+            args["wpnFileVersion"],
+            args["wpnFileTarget"],
+            args["wpnStructTarget"]
+        )
+        return({"data": "done"})  # DEBUG
+
+
+class WeaponHashMDL(Resource):
+    def post(self):
+        args = wpnArgs()
 
         # Check if argument is correct
         if args["wpnFileTarget"]:
@@ -79,34 +134,7 @@ class WeaponModding(Resource):
                 logger.critical("wpnFileTarget is not correct")
                 logger.critical(args["wpnFileTarget"])
                 sys.exit(0)
-        if args["wpnStructTarget"]:
-            if not args["wpnStructTarget"] in attr_wpnList():
-                logger.critical("wpnStructTarget is not correct")
-                logger.critical(args["wpnStructTarget"])
-                sys.exit(0)
 
-        # Model convertion
-        if args["wpnConvertMDL"]:
-            if not args["wpnFileType"]:
-                logger.critical("wpnFileType is not defined")
-                sys.exit(0)
-            if not args["wpnFileVersion"]:
-                logger.critical("wpnFileVersion is not defined")
-                sys.exit(0)
-            if not args["wpnFileTarget"]:
-                logger.critical("wpnFileTarget is not defined")
-                sys.exit(0)
-            if not args["wpnStructTarget"]:
-                logger.critical("wpnStructTarget is not defined")
-                sys.exit(0)
-            wpn_convertMDL(
-                args["rootDirectory"],
-                args["wpnFileType"],
-                args["wpnFileVersion"],
-                args["wpnFileTarget"],
-                args["wpnStructTarget"]
-            )
-        # Model MD5 hash
         if args["wpnHashMDL"]:
             if not args["wpnFileType"]:
                 logger.critical("wpnFileType is not defined")
@@ -120,10 +148,8 @@ class WeaponModding(Resource):
                 logger.critical("wpnHashMDL")
                 logger.critical(hashData)
                 return({"error": hashData})
-            r = {
+            return({
                 "fileTarget": hashData[0],
-                "fileHash": hashData[1],
+                "fileStruct": hashData[1],
                 "fileVersion": hashData[2]
-            }
-            return(r)
-        return({"data": args})  # DEBUG
+            })
