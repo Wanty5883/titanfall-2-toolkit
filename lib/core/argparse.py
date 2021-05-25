@@ -102,6 +102,7 @@ def argSubaction_wpn(args, parser):
     if args.wpnConvertMDL:  # Convert weapon model file
         if not args.rootDirectory:
             logger.critical("Root directory not defined")
+            sys.exit(0)
         if not args.wpnFileType:
             logger.critical("Weapon file type is not defined")
             sys.exit(0)
@@ -119,10 +120,12 @@ def argSubaction_wpn(args, parser):
             args.wpnFileType,
             args.wpnFileVersion,
             args.wpnFileTarget,
-            args.wpnStructTarget)
-    if args.wpnHashMDL:
+            args.wpnStructTarget
+        )
+    if args.wpnHashMDL:  # Model MD5 hash
         if not args.rootDirectory:
             logger.critical("Root directory not defined")
+            sys.exit(0)
         if not args.wpnFileType:
             logger.critical("Weapon file type is not defined")
             sys.exit(0)

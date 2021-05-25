@@ -33,3 +33,4 @@ def getLogger(loggerName):
 
 
 logger = getLogger("logger")
+logger_api = getLogger("API")
