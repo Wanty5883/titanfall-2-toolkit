@@ -16,22 +16,24 @@ def wpn_hashMDL(rootDir, fileType, fileTarget):
     model swap. Hence the reason of the md5 hash.
     Weapon var has to be a class name from "wpn_enums.py".
     """
-    if fileType == WPN.TYPE_1P:
-        fileType = "MDL_1P_FILE"  # Attribute for first person model
+    if fileType == WPN.TYPE_1P:  # Attributes for first person model
+        fileType = "MDL_1P_FILE"
+        fileFolder = "MDL_1P_FOLDER"
         hashVanilla = "MDL_1P_VANILLA_HASH"
         hashV1 = "MDL_1P_V1_HASH"
-    elif fileType == WPN.TYPE_3P:
-        fileType = ""  # Attribute for third person model
-    elif fileType == WPN.TYPE_HP:
-        fileType = ""  # Attribute for holster view model
-    elif fileType == WPN.TYPE_MP:
-        fileType = ""  # Attribute for menus view model
+    elif fileType == WPN.TYPE_3P:  # Attribute for third person model
+        fileType = None
+    elif fileType == WPN.TYPE_HP:  # Attribute for holster view model
+        fileType = None
+    elif fileType == WPN.TYPE_MP:  # Attribute for menus view model
+        fileType = None
     else:  # Just a bulletproof, argparse prevent that
         print("Error")  # TODO proper logging
         sys.exit(0)
-    fileFolder = "MDL_1P_FOLDER"
-    wpn_enums = attr_wpnList()
+    if not fileType:  # Bulletproof
+        sys.exit(0)
 
+    wpn_enums = attr_wpnList()  # List of classes name for getattr()
     fileName = getattr(getattr(ENUMS_WPN, fileTarget), fileType)
     fileFolder = getattr(getattr(ENUMS_WPN, fileTarget), fileFolder)
     filePath = "{0}\\{1}\\{2}".format(rootDir, fileFolder, fileName)

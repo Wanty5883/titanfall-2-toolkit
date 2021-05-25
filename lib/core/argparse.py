@@ -122,7 +122,7 @@ def argSubaction_wpn(args, parser):
             args.wpnFileTarget,
             args.wpnStructTarget
         )
-    if args.wpnHashMDL:
+    if args.wpnHashMDL:  # Model MD5 hash
         if not args.rootDirectory:
             logger.critical("Root directory not defined")
             sys.exit(0)

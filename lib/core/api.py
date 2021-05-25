@@ -9,7 +9,8 @@ from flask_restful import Resource
 # LPL - Local Python Libraries
 from lib.core.attr import attr_wpnList
 from lib.core.enums import API
-from lib.core.log import logger
+from lib.core.enums import WPN
+from lib.core.log import logger_api as logger
 from lib.r2.wpn import wpn_hashMDL
 from lib.r2.wpn import wpn_convertMDL
 import lib.r2.wpn_enums as ENUMS_WPN
@@ -72,24 +73,31 @@ class WeaponModding(Resource):
     def post(self):
         args = wpnArgsMods()
 
-        if not args["wpnFileTarget"] in attr_wpnList():
-            logger.critical("wpnFileTarget is not correct")
-            sys.exit(0)
-        if not args["wpnStructTarget"] in attr_wpnList():
-            logger.critical("wpnStructTarget is not correct")
-            sys.exit(0)
+        # Check if argument is correct
+        if args["wpnFileTarget"]:
+            if not args["wpnFileTarget"] in attr_wpnList():
+                logger.critical("wpnFileTarget is not correct")
+                logger.critical(args["wpnFileTarget"])
+                sys.exit(0)
+        if args["wpnStructTarget"]:
+            if not args["wpnStructTarget"] in attr_wpnList():
+                logger.critical("wpnStructTarget is not correct")
+                logger.critical(args["wpnStructTarget"])
+                sys.exit(0)
+
+        # Model convertion
         if args["wpnConvertMDL"]:
             if not args["wpnFileType"]:
-                logger.critical("")
+                logger.critical("wpnFileType is not defined")
                 sys.exit(0)
             if not args["wpnFileVersion"]:
-                logger.critical("")
+                logger.critical("wpnFileVersion is not defined")
                 sys.exit(0)
             if not args["wpnFileTarget"]:
-                logger.critical("")
+                logger.critical("wpnFileTarget is not defined")
                 sys.exit(0)
             if not args["wpnStructTarget"]:
-                logger.critical("")
+                logger.critical("wpnStructTarget is not defined")
                 sys.exit(0)
             wpn_convertMDL(
                 args["rootDirectory"],
@@ -98,5 +106,24 @@ class WeaponModding(Resource):
                 args["wpnFileTarget"],
                 args["wpnStructTarget"]
             )
-            return("ok")
-        return({"data": args})
+        # Model MD5 hash
+        if args["wpnHashMDL"]:
+            if not args["wpnFileType"]:
+                logger.critical("wpnFileType is not defined")
+                sys.exit(0)
+            if not args["wpnFileTarget"]:
+                logger.critical("wpnFileTarget is not defined")
+                sys.exit(0)
+            hashData = wpn_hashMDL(args["rootDirectory"], args["wpnFileType"], args["wpnFileTarget"])
+            # Error handling
+            if hashData == (WPN.VERSION_UNKNOWN or WPN.VERSION_FILE404):
+                logger.critical("wpnHashMDL")
+                logger.critical(hashData)
+                return({"error": hashData})
+            r = {
+                "fileTarget": hashData[0],
+                "fileHash": hashData[1],
+                "fileVersion": hashData[2]
+            }
+            return(r)
+        return({"data": args})  # DEBUG
