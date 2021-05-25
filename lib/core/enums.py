@@ -25,8 +25,8 @@ class WPN(object):
     VERSION_1 = "V1"
     VERSION_2 = "V2"
     VERSION_VANILLA = "Vanilla"
-    VERSION_UNKNOWN = "Unknown"
-    VERSION_FILE404 = "404"
+    FILE_UNKNOWN = "File is unknown"
+    FILE_404 = "File does not exist"
 
 
 class FRONTEND(object):

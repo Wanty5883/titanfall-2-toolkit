@@ -116,7 +116,7 @@ class WeaponModding(Resource):
                 sys.exit(0)
             hashData = wpn_hashMDL(args["rootDirectory"], args["wpnFileType"], args["wpnFileTarget"])
             # Error handling
-            if hashData == (WPN.VERSION_UNKNOWN or WPN.VERSION_FILE404):
+            if hashData == (WPN.FILE_UNKNOWN or WPN.FILE_404):
                 logger.critical("wpnHashMDL")
                 logger.critical(hashData)
                 return({"error": hashData})

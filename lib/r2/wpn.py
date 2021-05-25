@@ -43,18 +43,20 @@ def wpn_hashMDL(rootDir, fileType, fileTarget):
             file_hash = hashlib.md5(file_byte).hexdigest()
         for x in wpn_enums:
             if file_hash == getattr(getattr(ENUMS_WPN, x), hashVanilla):
-                logger.debug([fileTarget, x, WPN.VERSION_VANILLA])
-                return([fileTarget, x, WPN.VERSION_VANILLA])
+                result = [fileTarget, x, WPN.VERSION_VANILLA]
+                logger.debug(result)
+                return(result)
             elif file_hash == getattr(getattr(ENUMS_WPN, x), hashV1):
-                logger.debug([fileTarget, x, WPN.VERSION_1])
-                return([fileTarget, x, WPN.VERSION_1])
-        r = WPN.VERSION_UNKNOWN  # if file have unknown modification.
-        logger.debug(r)
-        return(r)
-    else:
-        r = WPN.VERSION_FILE404  # if file does not exist.
-        logger.debug(r)
-        return(r)
+                result = [fileTarget, x, WPN.VERSION_1]
+                logger.debug(result)
+                return(result)
+        result = WPN.FILE_UNKNOWN  # if file have unknown modification.
+        logger.debug(result)
+        return(result)
+    elif not os.path.isfile(filePath):  # if file does not exist.
+        result = WPN.FILE_404
+        logger.debug(result)
+        return(result)
 
 
 def wpn_convertMDL(rootDir, fileType, fileVersion, fileTarget, structTarget):
