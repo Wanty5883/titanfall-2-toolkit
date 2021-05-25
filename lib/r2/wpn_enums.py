@@ -1,6 +1,5 @@
 # LPL - Local Python Libraries
 from lib.core.enums import FRONTEND
-from lib.core.enums import WPN
 
 
 """
