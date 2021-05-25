@@ -24,7 +24,7 @@ class WPN(object):
     TYPE_MP = "MP"  # Menus view
     VERSION_1 = "V1"
     VERSION_2 = "V2"
-    VERSION_VANILLA = "Vanilla"
+    VERSION_VANILLA = "VANILLA"
     FILE_UNKNOWN = "File is unknown"
     FILE_404 = "File does not exist"
 
