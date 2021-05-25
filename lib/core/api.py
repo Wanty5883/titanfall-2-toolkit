@@ -1,3 +1,5 @@
+# SPL - Standard Python Libraries
+import sys
 # TPL - Third Party Libraries
 from flask import Flask
 from flask import request
@@ -7,6 +9,9 @@ from flask_restful import Resource
 # LPL - Local Python Libraries
 from lib.core.attr import attr_wpnList
 from lib.core.enums import API
+from lib.core.log import logger
+from lib.r2.wpn import wpn_hashMDL
+from lib.r2.wpn import wpn_convertMDL
 import lib.r2.wpn_enums as ENUMS_WPN
 
 
@@ -39,7 +44,8 @@ class WeaponInfo(Resource):
                     "name": getattr(getattr(ENUMS_WPN, x), "WPN_NAME"),
                     "nameshort": getattr(getattr(ENUMS_WPN, x), "WPN_NAME_SHORT"),
                     "desc": getattr(getattr(ENUMS_WPN, x), "WPN_DESC"),
-                    "longdesc": getattr(getattr(ENUMS_WPN, x), "WPN_LONGDESC")
+                    "longdesc": getattr(getattr(ENUMS_WPN, x), "WPN_LONGDESC"),
+                    "attribute": x
                 }
                 return(r)
 
@@ -65,4 +71,32 @@ class WeaponModding(Resource):
 
     def post(self):
         args = wpnArgsMods()
+
+        if not args["wpnFileTarget"] in attr_wpnList():
+            logger.critical("wpnFileTarget is not correct")
+            sys.exit(0)
+        if not args["wpnStructTarget"] in attr_wpnList():
+            logger.critical("wpnStructTarget is not correct")
+            sys.exit(0)
+        if args["wpnConvertMDL"]:
+            if not args["wpnFileType"]:
+                logger.critical("")
+                sys.exit(0)
+            if not args["wpnFileVersion"]:
+                logger.critical("")
+                sys.exit(0)
+            if not args["wpnFileTarget"]:
+                logger.critical("")
+                sys.exit(0)
+            if not args["wpnStructTarget"]:
+                logger.critical("")
+                sys.exit(0)
+            wpn_convertMDL(
+                args["rootDirectory"],
+                args["wpnFileType"],
+                args["wpnFileVersion"],
+                args["wpnFileTarget"],
+                args["wpnStructTarget"]
+            )
+            return("ok")
         return({"data": args})
