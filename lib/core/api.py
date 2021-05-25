@@ -5,7 +5,9 @@ from flask_restful import Api
 from flask_restful import reqparse
 from flask_restful import Resource
 # LPL - Local Python Libraries
+from lib.core.attr import attr_wpnList
 from lib.core.enums import API
+import lib.r2.wpn_enums as ENUMS_WPN
 
 
 def apiServer():
@@ -13,7 +15,8 @@ def apiServer():
     app = Flask(API.SERVER_NAME)
     api = Api(app)
 
-    api.add_resource(Weapon, "/weapon")
+    api.add_resource(WeaponInfo, "/weapon/<string:weaponName>")
+    api.add_resource(WeaponModding, "/weapon")
 
     app.run(host="localhost", port=API.SERVER_PORT, debug=True)
 
@@ -27,7 +30,21 @@ def apiServer():
             shutdown()
 
 
-def wpnArgs():
+class WeaponInfo(Resource):
+    def get(self, weaponName):
+        wpn_enums = attr_wpnList()
+        for x in wpn_enums:
+            if weaponName == getattr(getattr(ENUMS_WPN, x), "WPN_NAME_SHORT"):
+                r = {
+                    "name": getattr(getattr(ENUMS_WPN, x), "WPN_NAME"),
+                    "nameshort": getattr(getattr(ENUMS_WPN, x), "WPN_NAME_SHORT"),
+                    "desc": getattr(getattr(ENUMS_WPN, x), "WPN_DESC"),
+                    "longdesc": getattr(getattr(ENUMS_WPN, x), "WPN_LONGDESC")
+                }
+                return(r)
+
+
+def wpnArgsMods():
     args = reqparse.RequestParser()
     # Mandaroty arguments
     args.add_argument("rootDirectory", type=str, help="Set the extracted VPK directory", required=True)
@@ -42,10 +59,10 @@ def wpnArgs():
     return(args.parse_args())
 
 
-class Weapon(Resource):
+class WeaponModding(Resource):
     def get(self):
         pass
 
     def post(self):
-        args = wpnArgs()
+        args = wpnArgsMods()
         return({"data": args})
