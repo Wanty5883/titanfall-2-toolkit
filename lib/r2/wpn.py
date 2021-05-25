@@ -33,10 +33,10 @@ def wpn_hashMDL(rootDir, fileType, fileTarget):
     wpn_enums = attr_wpnList()
 
     fileName = getattr(getattr(ENUMS_WPN, fileTarget), fileType)
-    filePath = getattr(getattr(ENUMS_WPN, fileTarget), fileFolder)
-    file1P = "{0}\\{1}\\{2}".format(rootDir, filePath, fileName)
-    if os.path.isfile(file1P):  # if file exist
-        with open(file1P, "rb") as file:   # Get file hash
+    fileFolder = getattr(getattr(ENUMS_WPN, fileTarget), fileFolder)
+    filePath = "{0}\\{1}\\{2}".format(rootDir, fileFolder, fileName)
+    if os.path.isfile(filePath):  # if file exist
+        with open(filePath, "rb") as file:   # Get file hash
             file_byte = file.read()
             file_hash = hashlib.md5(file_byte).hexdigest()
         for x in wpn_enums:
