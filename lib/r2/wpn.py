@@ -16,14 +16,14 @@ def wpn_hashMDL(rootDir, fileType, fileTarget):
     model swap. Hence the reason of the md5 hash.
     Weapon var has to be a class name from "wpn_enums.py".
     """
-    if fileType == WPN.TYPE_1P:  # Attributes for first person model
+    if fileType == WPN.FILE_TYPE_1P:  # Attributes for first person model
         fileType = "MDL_1P_FILE"
         fileFolder = "MDL_1P_FOLDER"
         hashVanilla = "MDL_1P_VANILLA_HASH"
         hashV1 = "MDL_1P_V1_HASH"
-    elif fileType == WPN.TYPE_3P:  # Attribute for third person model
+    elif fileType == WPN.FILE_TYPE_3P:  # Attribute for third person model
         fileType = None
-    elif fileType == WPN.TYPE_HP:  # Attribute for holster view model
+    elif fileType == WPN.FILE_TYPE_HP:  # Attribute for holster view model
         fileType = None
     elif fileType == WPN.TYPE_MP:  # Attribute for menus view model
         fileType = None
@@ -66,16 +66,16 @@ def wpn_convertMDL(rootDir, fileType, fileVersion, fileTarget, structTarget):
     binaries to edit. Both 'fileTarget' and 'structTarget' can be the same, being
     usefull when model swap has been done on the given file.
     """
-    if fileType == WPN.TYPE_1P:
+    if fileType == WPN.FILE_TYPE_1P:
         fileName = "MDL_1P_FILE"  # Attribute for first person model
         if fileVersion == WPN.VERSION_1:
             fileBinOperation = "MDL_1P_V1_BIN"  # Attribute for bin operation
         elif fileVersion == WPN.VERSION_VANILLA:
             fileBinOperation = "MDL_1P_V1_BIN_VANILLA"  # Attribute for bin operation
         fileFolder = "MDL_1P_FOLDER"  # TODO make exception from here
-    elif fileType == WPN.TYPE_3P:
+    elif fileType == WPN.FILE_TYPE_3P:
         fileName = "MDL_FILE_3P"  # Attribute for third person model
-    elif fileType == WPN.TYPE_HP:
+    elif fileType == WPN.FILE_TYPE_HP:
         fileName = "MDL_FILE_HP"  # Attribute for holster view model
     elif fileType == WPN.TYPE_MP:
         fileName = "MDL_FILE_MP"  # Attribute for menus view model

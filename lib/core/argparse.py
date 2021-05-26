@@ -67,10 +67,10 @@ def subparser_wpn(subparser):
         "--wpn-fileType",
         dest="wpnFileType",
         choices=[
-            WPN.TYPE_1P,
-            WPN.TYPE_3P,
-            WPN.TYPE_HP,
-            WPN.TYPE_MP
+            WPN.FILE_TYPE_1P,
+            WPN.FILE_TYPE_3P,
+            WPN.FILE_TYPE_HP,
+            WPN.FILE_TYPE_MP
         ],
         help="Choose the 3D model file type (1P, 3P, etc.)"
     )
