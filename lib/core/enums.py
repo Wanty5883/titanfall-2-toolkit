@@ -25,6 +25,7 @@ class WPN(object):
     CLASS_TITAN_ORDNANCE = "Titan Ordnance"
     CLASS_TITAN_PRIMARY = "Titan Primary"
     FILE_404 = "File does not exist"
+    FILE_PATH_ICON = r"data\images\weapon_icons"
     FILE_TYPE_1P = "1P"  # First person view
     FILE_TYPE_3P = "3P"  # Third person view
     FILE_TYPE_HP = "HP"  # Holster view
