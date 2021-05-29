@@ -4,8 +4,9 @@ import os.path
 import sys
 # LPL - Local Python Libraries
 from lib.core.attr import attr_wpnList
+from lib.core.enums import API
 from lib.core.enums import WPN
-from lib.core.log import logger
+from lib.core.log import logger as logs
 import lib.r2.wpn_enums as ENUMS_WPN
 
 
@@ -25,7 +26,7 @@ def wpn_hashMDL(rootDir, fileType, fileTarget):
         fileType = None
     elif fileType == WPN.FILE_TYPE_HP:  # Attribute for holster view model
         fileType = None
-    elif fileType == WPN.TYPE_MP:  # Attribute for menus view model
+    elif fileType == WPN.FILE_TYPE_MP:  # Attribute for menus view model
         fileType = None
     else:  # Just a bulletproof, argparse prevent that
         print("Error")  # TODO proper logging
@@ -44,18 +45,18 @@ def wpn_hashMDL(rootDir, fileType, fileTarget):
         for x in wpn_enums:
             if file_hash == getattr(getattr(ENUMS_WPN, x), hashVanilla):
                 result = [fileTarget, x, WPN.VERSION_VANILLA]
-                logger.debug(result)
+                logs.debug(result)
                 return(result)
             elif file_hash == getattr(getattr(ENUMS_WPN, x), hashV1):
                 result = [fileTarget, x, WPN.VERSION_1]
-                logger.debug(result)
+                logs.debug(result)
                 return(result)
         result = WPN.FILE_UNKNOWN  # if file have unknown modification.
-        logger.debug(result)
+        logs.debug(result)
         return(result)
     elif not os.path.isfile(filePath):  # if file does not exist.
         result = WPN.FILE_404
-        logger.debug(result)
+        logs.debug(result)
         return(result)
 
 
@@ -87,7 +88,15 @@ def wpn_convertMDL(rootDir, fileType, fileVersion, fileTarget, structTarget):
     fileDir = getattr(getattr(ENUMS_WPN, fileTarget), fileFolder)
     filePath = "{0}\\{1}\\{2}".format(rootDir, fileDir, fileName)
     fileMod = getattr(getattr(ENUMS_WPN, structTarget), fileBinOperation)
-    with open(filePath, "r+b") as file:
-        for offset, bytes in fileMod:
-            file.seek(offset)
-            file.write(bytes)
+    try:
+        with open(filePath, "r+b") as file:
+            for offset, bytes in fileMod:
+                file.seek(offset)
+                file.write(bytes)
+    except FileNotFoundError as error:
+        errorMsg = "wpn_convertMDL() file not found: {0}".format(filePath)
+        logs.debug(errorMsg)
+        logs.debug(format(AttributeError))
+        logs.debug(format(error))
+        return(API.MESSAGE_ERROR)
+    return(API.MESSAGE_SUCCESS)

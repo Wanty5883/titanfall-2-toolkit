@@ -4,7 +4,7 @@ import sys
 # LPL - Local Python Libraries
 from lib.core.attr import attr_wpnList
 from lib.core.enums import WPN
-from lib.core.log import logger
+from lib.core.log import logger as logs
 from lib.r2.wpn import wpn_hashMDL
 from lib.r2.wpn import wpn_convertMDL
 
@@ -32,7 +32,7 @@ def argParser(argv=None):
 
 
 def argAction(args, parser):
-    logger.info(vars(args))  # Log the command arguments used
+    logs.info(vars(args))  # Log the command arguments used
     if not args.command:  # Display help message if parser is not used
         parser.parse_args(["--help"])
         sys.exit(0)
@@ -101,19 +101,19 @@ def subparser_wpn(subparser):
 def argSubaction_wpn(args, parser):
     if args.wpnConvertMDL:  # Convert weapon model file
         if not args.rootDirectory:
-            logger.critical("Root directory not defined")
+            logs.critical("Root directory not defined")
             sys.exit(0)
         if not args.wpnFileType:
-            logger.critical("Weapon file type is not defined")
+            logs.critical("Weapon file type is not defined")
             sys.exit(0)
         if not args.wpnFileVersion:
-            logger.critical("Weapon file version is not defined")
+            logs.critical("Weapon file version is not defined")
             sys.exit(0)
         if not args.wpnFileTarget:
-            logger.critical("Weapon file target is not defined")
+            logs.critical("Weapon file target is not defined")
             sys.exit(0)
         if not args.wpnStructTarget:
-            logger.critical("Weapon file structure is not defined")
+            logs.critical("Weapon file structure is not defined")
             sys.exit(0)
         wpn_convertMDL(
             args.rootDirectory,
@@ -124,12 +124,12 @@ def argSubaction_wpn(args, parser):
         )
     if args.wpnHashMDL:  # Model MD5 hash
         if not args.rootDirectory:
-            logger.critical("Root directory not defined")
+            logs.critical("Root directory not defined")
             sys.exit(0)
         if not args.wpnFileType:
-            logger.critical("Weapon file type is not defined")
+            logs.critical("Weapon file type is not defined")
             sys.exit(0)
         if not args.wpnFileTarget:
-            logger.critical("Weapon file target is not defined")
+            logs.critical("Weapon file target is not defined")
             sys.exit(0)
         wpn_hashMDL(args.rootDirectory, args.wpnFileType, args.wpnFileTarget)

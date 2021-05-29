@@ -1,10 +1,16 @@
+# SPL - Standard Python Libraries
+from inspect import isclass
 # TPL - Third Party Libraries
 import uvicorn
 from fastapi import FastAPI
+from fastapi import Query
 # LPL - Local Python Libraries
 from lib.core.attr import attr_wpnList
 from lib.core.enums import API
 from lib.core.enums import WPN
+from lib.core.log import logger_api as logs
+from lib.r2.wpn import wpn_hashMDL
+from lib.r2.wpn import wpn_convertMDL
 import lib.r2.wpn_enums as WPN_ENUMS
 
 
@@ -36,6 +42,47 @@ async def weaponList():
     return(weapons)
 
 
+@app.get("/weapon/convertmdl")
+async def weaponConvertMDL(
+    rootDirectory: str = Query(...),
+    fileType: str = Query(...),
+    fileVersion: str = Query(...),
+    fileTarget: str = Query(...),
+    structTarget: str = Query(...),
+):
+    # Check if arguments are correct
+    # FILE TYPE
+    conditions = [WPN.FILE_TYPE_1P, WPN.FILE_TYPE_3P, WPN.FILE_TYPE_HP, WPN.FILE_TYPE_MP]
+    if fileType not in conditions:
+        errorMsg = "Given file type is unknown"
+        logs.critical("Internal API error: /weapon/convertmdl")
+        logs.critical(errorMsg)
+        logs.critical(fileType)
+        return {"error": errorMsg}
+    # FILE VERSION
+    conditions = [WPN.VERSION_1, WPN.VERSION_2, WPN.VERSION_VANILLA]
+    if fileVersion not in conditions:
+        errorMsg = "Given file verison is unknown"
+        logs.critical("Internal API error: /weapon/convertmdl")
+        logs.critical(errorMsg)
+        logs.critical(fileVersion)
+        return {"error": errorMsg}
+    # FILE TARGET
+    if fileTarget.upper() not in attr_wpnList():
+        errorMsg = "Given file target is unknown"
+        logs.critical("Internal API error: /weapon/convertmdl")
+        logs.critical(errorMsg)
+        logs.critical(fileTarget)
+        return {"error": errorMsg}
+    # STRUCT TARGET
+    if structTarget.upper() not in attr_wpnList():
+        errorMsg = "Given struct target is unknown"
+        logs.critical("Internal API error: /weapon/convertmdl")
+        logs.critical(errorMsg)
+        logs.critical(structTarget)
+        return {"error": errorMsg}
+    r = wpn_convertMDL(rootDirectory, fileType, fileVersion, fileTarget.upper(), structTarget.upper())
+    return {r: True}
 
 
 # TODO find a better way to do this

@@ -1,4 +1,6 @@
 class API(object):
+    MESSAGE_SUCCESS = "success"
+    MESSAGE_ERROR = "error"
     SERVER_NAME = "r2_toolkit"
     SERVER_PORT = 5883
 
@@ -34,16 +36,16 @@ class WPN(object):
     TYPE_AR = "Assault Rifle"
     TYPE_AT = "Anti-Titan"
     TYPE_EXPLOSIVE = "Explosive"
+    TYPE_GRENADIER = "Grenadier"
     TYPE_LMG = "Light Machine Gun"
     TYPE_MELEE = "Melee"
-    TYPE_GRENADIER = "Grenadier"
     TYPE_PISTOL = "Pistol"
     TYPE_SHOTGUN = "Shotgun"
     TYPE_SMG = "Submachine Gun"
     TYPE_SR = "Sniper Rifle"
-    VERSION_1 = "V1"
-    VERSION_2 = "V2"
-    VERSION_VANILLA = "VANILLA"
+    VERSION_1 = "1"
+    VERSION_2 = "2"
+    VERSION_VANILLA = "vanilla"
 
 
 class FRONTEND(object):
@@ -65,12 +67,12 @@ class FRONTEND(object):
     WPN_ARCHER_CLASS = WPN.CLASS_PILOT_AT
     WPN_ARCHER_TYPE = WPN.TYPE_AT
 
-    WPN_CAR101_DESC = "Consistent recoil SMG."
-    WPN_CAR101_LONGDESC = "The Combat Advanced Round Submachine Gun (C.A.R. SMG) is a Pilot anti-personnel fully automatic submachine gun that appears in Titanfall and Titanfall 2"
-    WPN_CAR101_NAME = "CAR"
-    WPN_CAR101_NAME_SHORT = "car"
-    WPN_CAR101_CLASS = WPN.CLASS_PILOT_PRIMARY
-    WPN_CAR101_TYPE = WPN.TYPE_SMG
+    WPN_CAR_DESC = "Consistent recoil SMG."
+    WPN_CAR_LONGDESC = "The Combat Advanced Round Submachine Gun (C.A.R. SMG) is a Pilot anti-personnel fully automatic submachine gun that appears in Titanfall and Titanfall 2"
+    WPN_CAR_NAME = "CAR"
+    WPN_CAR_NAME_SHORT = "car"
+    WPN_CAR_CLASS = WPN.CLASS_PILOT_PRIMARY
+    WPN_CAR_TYPE = WPN.TYPE_SMG
 
     WPN_COLDWAR_DESC = "4-round burst Grenadier weapon."
     WPN_COLDWAR_LONGDESC = "The EM-4 Cold War is a primary four-round burst bullpup grenade launcher manufactured by Vinson Dynamics, firing 4.73x33mm explosive ammunition."
@@ -191,19 +193,19 @@ class FRONTEND(object):
     WPN_P2016_CLASS = WPN.CLASS_PILOT_PISTOL
     WPN_P2016_TYPE = WPN.TYPE_PISTOL
 
-    WPN_PARTICLEACCELERATOR_DESC = "Drains energy to split the shot, increasing damage"
-    WPN_PARTICLEACCELERATOR_LONGDESC = "The Splitter Rifle (Otherwise known as the Titan Particle Accelerator or TPAR)is a Titan fully-automatic energy rifle"
-    WPN_PARTICLEACCELERATOR_NAME = "Splitter Rifle"
-    WPN_PARTICLEACCELERATOR_NAME_SHORT = "splitter"
-    WPN_PARTICLEACCELERATOR_CLASS = WPN.CLASS_TITAN_PRIMARY
-    WPN_PARTICLEACCELERATOR_TYPE = WPN.CLASS_TITAN_PRIMARY
+    WPN_SPLITTER_DESC = "Drains energy to split the shot, increasing damage"
+    WPN_SPLITTER_LONGDESC = "The Splitter Rifle (Otherwise known as the Titan Particle Accelerator or TPAR)is a Titan fully-automatic energy rifle"
+    WPN_SPLITTER_NAME = "Splitter Rifle"
+    WPN_SPLITTER_NAME_SHORT = "splitter"
+    WPN_SPLITTER_CLASS = WPN.CLASS_TITAN_PRIMARY
+    WPN_SPLITTER_TYPE = WPN.CLASS_TITAN_PRIMARY
 
-    WPN_PREDATORCANNON_DESC = "Heavy minigun"
-    WPN_PREDATORCANNON_LONGDESC = "Powerful minigun with a long spin-up time."
-    WPN_PREDATORCANNON_NAME = "Predator Cannon"
-    WPN_PREDATORCANNON_NAME_SHORT = "predator"
-    WPN_PREDATORCANNON_CLASS = WPN.CLASS_TITAN_PRIMARY
-    WPN_PREDATORCANNON_TYPE = WPN.CLASS_TITAN_PRIMARY
+    WPN_PREDATOR_DESC = "Heavy minigun"
+    WPN_PREDATOR_LONGDESC = "Powerful minigun with a long spin-up time."
+    WPN_PREDATOR_NAME = "Predator Cannon"
+    WPN_PREDATOR_NAME_SHORT = "predator"
+    WPN_PREDATOR_CLASS = WPN.CLASS_TITAN_PRIMARY
+    WPN_PREDATOR_TYPE = WPN.CLASS_TITAN_PRIMARY
 
     WPN_R101_DESC = "Factory issue scoped predecessor of the R-201 rifle."
     WPN_R101_LONGDESC = "The R-101C (Compact) Carbine is a Pilot anti-personnel fully automatic carbine manufactured by Lastimosa Armory."
@@ -240,12 +242,12 @@ class FRONTEND(object):
     WPN_RE45_CLASS = WPN.CLASS_PILOT_PISTOL
     WPN_RE45_TYPE = WPN.TYPE_PISTOL
 
-    WPN_SMARTPISTOL_DESC = "Idiot pistol"
-    WPN_SMARTPISTOL_LONGDESC = "The next generation in AI targeting technology comes in the form of the Lastimosa Armory Smart Pistol MK6. Upgrades from the MK5 include a reciprocating charging handle, frame integrated ammo counter, multi-function Laser Aiming Module (LAM), etc."
-    WPN_SMARTPISTOL_NAME = "Smart Pistol MK6"
-    WPN_SMARTPISTOL_NAME_SHORT = "mk6"
-    WPN_SMARTPISTOL_CLASS = WPN.CLASS_PILOT_PISTOL
-    WPN_SMARTPISTOL_TYPE = WPN.TYPE_PISTOL
+    WPN_MK6_DESC = "Idiot pistol"
+    WPN_MK6_LONGDESC = "The next generation in AI targeting technology comes in the form of the Lastimosa Armory Smart Pistol MK6. Upgrades from the MK5 include a reciprocating charging handle, frame integrated ammo counter, multi-function Laser Aiming Module (LAM), etc."
+    WPN_MK6_NAME = "Smart Pistol MK6"
+    WPN_MK6_NAME_SHORT = "mk6"
+    WPN_MK6_CLASS = WPN.CLASS_PILOT_PISTOL
+    WPN_MK6_TYPE = WPN.TYPE_PISTOL
 
     WPN_SMR_DESC = "Rapidly fires micro-missiles."
     WPN_SMR_LONGDESC = "The Anti-Titan Sidewinder Micro Rocket launcher (AT-SMR), is an Anti-Titan Automatic Rocket Launcher (AT-ARL). It is manufactured by Wonyeon Defense."
@@ -268,17 +270,17 @@ class FRONTEND(object):
     WPN_SPITFIRE_CLASS = WPN.CLASS_PILOT_PRIMARY
     WPN_SPITFIRE_TYPE = WPN.TYPE_LMG
 
-    WPN_THERMITECANNON_DESC = "Ignites the impact area."
-    WPN_THERMITECANNON_LONGDESC = "Giant thermite grenades ignite the impact area."
-    WPN_THERMITECANNON_NAME = "T-203 Thermite Launcher"
-    WPN_THERMITECANNON_NAME_SHORT = "t203"
-    WPN_THERMITECANNON_CLASS = WPN.CLASS_TITAN_PRIMARY
-    WPN_THERMITECANNON_TYPE = WPN.CLASS_TITAN_PRIMARY
+    WPN_T203_DESC = "Ignites the impact area."
+    WPN_T203_LONGDESC = "Giant thermite grenades ignite the impact area."
+    WPN_T203_NAME = "T-203 Thermite Launcher"
+    WPN_T203_NAME_SHORT = "t203"
+    WPN_T203_CLASS = WPN.CLASS_TITAN_PRIMARY
+    WPN_T203_TYPE = WPN.CLASS_TITAN_PRIMARY
 
     WPN_THR40MM_DESC = "Semi-auto 40mm HE rounds."
     WPN_THR40MM_LONGDESC = "The factory issue 40mm Cannon is a semi-automatic weapon that fires a high-explosive round with good accuracy."
     WPN_THR40MM_NAME = "40mm Cannon"
-    WPN_THR40MM_NAME_SHORT = "40mm"
+    WPN_THR40MM_NAME_SHORT = "thr40mm"
     WPN_THR40MM_CLASS = WPN.CLASS_TITAN_PRIMARY
     WPN_THR40MM_TYPE = WPN.CLASS_TITAN_PRIMARY
 
@@ -296,23 +298,23 @@ class FRONTEND(object):
     WPN_VOLT_CLASS = WPN.CLASS_PILOT_PRIMARY
     WPN_VOLT_TYPE = WPN.TYPE_SMG
 
-    WPN_WINGMANB3_DESC = "High-powered revolver."
-    WPN_WINGMANB3_LONGDESC = "The B3 Wingman is a Pilot anti-personnel revolver handgun sidearm. The Wingman boasts immense high-caliber stopping power and notable accuracy to compensate for its small magazine and relatively slow fire rate."
-    WPN_WINGMANB3_NAME = "B3 Wingman"
-    WPN_WINGMANB3_NAME_SHORT = "wingman"
-    WPN_WINGMANB3_CLASS = WPN.CLASS_PILOT_PISTOL
-    WPN_WINGMANB3_TYPE = WPN.TYPE_PISTOL
+    WPN_WINGMAN_DESC = "High-powered revolver."
+    WPN_WINGMAN_LONGDESC = "The B3 Wingman is a Pilot anti-personnel revolver handgun sidearm. The Wingman boasts immense high-caliber stopping power and notable accuracy to compensate for its small magazine and relatively slow fire rate."
+    WPN_WINGMAN_NAME = "B3 Wingman"
+    WPN_WINGMAN_NAME_SHORT = "wingman"
+    WPN_WINGMAN_CLASS = WPN.CLASS_PILOT_PISTOL
+    WPN_WINGMAN_TYPE = WPN.TYPE_PISTOL
 
     WPN_WINGMANN_DESC = "Extended range projectile pistol with stock scope."
     WPN_WINGMANN_LONGDESC = "Bish's personal and most trusted sidearm. The B3 Wingman Elite has been customized to fit the needs of an inter-colonial arms dealer with a shady past and even cloudier business practices."
     WPN_WINGMANN_NAME = "Wingman Elite"
-    WPN_WINGMANN_NAME_SHORT = "wingmane"
+    WPN_WINGMANN_NAME_SHORT = "wingmann"
     WPN_WINGMANN_CLASS = WPN.CLASS_PILOT_PISTOL
     WPN_WINGMANN_TYPE = WPN.TYPE_PISTOL
 
-    WPN_XO16_DESC = "20mm automatic rifle."
-    WPN_XO16_LONGDESC = "20mm automatic rifle."
-    WPN_XO16_NAME = "XO-16"
-    WPN_XO16_NAME_SHORT = "chaingun"
-    WPN_XO16_CLASS = WPN.CLASS_TITAN_PRIMARY
-    WPN_XO16_TYPE = WPN.CLASS_TITAN_PRIMARY
+    WPN_CHAINGUN_DESC = "20mm automatic rifle."
+    WPN_CHAINGUN_LONGDESC = "20mm automatic rifle."
+    WPN_CHAINGUN_NAME = "XO-16"
+    WPN_CHAINGUN_NAME_SHORT = "chaingun"
+    WPN_CHAINGUN_CLASS = WPN.CLASS_TITAN_PRIMARY
+    WPN_CHAINGUN_TYPE = WPN.CLASS_TITAN_PRIMARY
