@@ -1,16 +1,13 @@
-# SPL - Standard Python Libraries
-from inspect import isclass
 # TPL - Third Party Libraries
-import uvicorn
 from fastapi import FastAPI
 from fastapi import Query
 # LPL - Local Python Libraries
 from lib.core.attr import attr_wpnList
-from lib.core.enums import API
 from lib.core.enums import WPN
 from lib.core.log import logger_api as logs
-from lib.r2.wpn import wpn_hashMDL
+from lib.r2.wpn import wpn_backupMDL
 from lib.r2.wpn import wpn_convertMDL
+from lib.r2.wpn import wpn_hashMDL
 import lib.r2.wpn_enums as WPN_ENUMS
 
 
@@ -82,11 +79,70 @@ async def weaponConvertMDL(
         logs.critical(structTarget)
         return {"error": errorMsg}
     r = wpn_convertMDL(rootDirectory, fileType, fileVersion, fileTarget.upper(), structTarget.upper())
-    return {r: True}
+    return {"result": r}
 
 
-# TODO find a better way to do this
-# XXX JS py-shell library ?
-# XXX Or JS using a uvicorn command by itself ? Is that even doable ?
-# if __name__ == "lib.core.api":
-#     uvicorn.run(app, port=API.SERVER_PORT)
+@app.get("/weapon/hashmdl")
+async def weaponHashMDL(
+    rootDirectory: str = Query(...),
+    fileType: str = Query(...),
+    fileTarget: str = Query(...)
+):
+    # Check if arguments are correct
+    # FILE TYPE
+    conditions = [WPN.FILE_TYPE_1P, WPN.FILE_TYPE_3P, WPN.FILE_TYPE_HP, WPN.FILE_TYPE_MP]
+    if fileType not in conditions:
+        errorMsg = "Given file type is unknown"
+        logs.critical("Internal API error: /weapon/hashmdl")
+        logs.critical(errorMsg)
+        logs.critical(fileType)
+        return {"error": errorMsg}
+    # FILE TARGET
+    fileTarget = fileTarget.upper()
+    if fileTarget not in attr_wpnList():
+        errorMsg = "Given file target is unknown"
+        logs.critical("Internal API error: /weapon/hashmdl")
+        logs.critical(errorMsg)
+        logs.critical(fileTarget)
+        return {"error": errorMsg}
+
+    hashData = wpn_hashMDL(rootDirectory, fileType, fileTarget)
+    if hashData == (WPN.FILE_UNKNOWN or WPN.FILE_404):
+        logs.critical("wpnHashMDL")
+        logs.critical(hashData)
+        return({"error": hashData})
+    return({
+        "fileTarget": hashData[0],
+        "fileStruct": hashData[1],
+        "fileVersion": hashData[2]
+    })
+
+
+@app.get("/weapon/backup")
+async def weaponBackup(
+    rootDirectory: str = Query(...),
+    fileType: str = Query(...),
+    fileTarget: str = Query(...),
+):
+    """
+    Will make a backup of a weapon model.
+    """
+    # Check if arguments are correct
+    # FILE TYPE
+    conditions = [WPN.FILE_TYPE_1P, WPN.FILE_TYPE_3P, WPN.FILE_TYPE_HP, WPN.FILE_TYPE_MP]
+    if fileType not in conditions:
+        errorMsg = "Given file type is unknown"
+        logs.critical("Internal API error: /weapon/backup")
+        logs.critical(errorMsg)
+        logs.critical(fileType)
+        return {"error": errorMsg}
+    # FILE TARGET
+    fileTarget = fileTarget.upper()
+    if fileTarget not in attr_wpnList():
+        errorMsg = "Given file target is unknown"
+        logs.critical("Internal API error: /weapon/hashmdl")
+        logs.critical(errorMsg)
+        logs.critical(fileTarget)
+        return {"error": errorMsg}
+
+    wpn_backupMDL(rootDirectory, fileType, fileTarget)
