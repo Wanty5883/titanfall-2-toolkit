@@ -108,7 +108,7 @@ async def weaponHashMDL(
 
     hashData = wpn_hashMDL(rootDirectory, fileType, fileTarget)
     if hashData == (WPN.FILE_UNKNOWN or WPN.FILE_404):
-        logs.critical("wpnHashMDL")
+        logs.critical("Weapon hash is either unknown or has an error")
         logs.critical(hashData)
         return({"error": hashData})
     return({
@@ -124,9 +124,6 @@ async def weaponBackup(
     fileType: str = Query(...),
     fileTarget: str = Query(...),
 ):
-    """
-    Will make a backup of a weapon model.
-    """
     # Check if arguments are correct
     # FILE TYPE
     conditions = [WPN.FILE_TYPE_1P, WPN.FILE_TYPE_3P, WPN.FILE_TYPE_HP, WPN.FILE_TYPE_MP]
@@ -145,4 +142,5 @@ async def weaponBackup(
         logs.critical(fileTarget)
         return {"error": errorMsg}
 
-    wpn_backupMDL(rootDirectory, fileType, fileTarget)
+    r = wpn_backupMDL(rootDirectory, fileType, fileTarget)
+    return {"result": r}

@@ -113,19 +113,13 @@ def wpn_convertMDL(rootDir, fileType, fileVersion, fileTarget, structTarget=Fals
 
 
 def wpn_backupMDL(rootDir, fileType, fileTarget):
-    hashData = wpn_hashMDL(rootDir, fileType, fileTarget)
-    if hashData == (WPN.FILE_UNKNOWN or WPN.FILE_404):
-        logs.critical("wpnHashMDL")
-        logs.critical(hashData)
-        return({"error": hashData})
-
-    fileStruct = hashData[1]
-    if fileStruct != getattr(getattr(WPN_ENUMS, fileTarget), "WPN_NAME_SHORT"):
-        # TODO if this error occurs, prompt the users to backup the original file manually
-        # Will also need to change the result message in order to do that
-        logs.error("Cannot backup the file because it has been swapped with another one.")
-        return {"result": API.MESSAGE_ERROR}
-
+    """
+    Manage the backup of a weapon model file
+    First check if a backup already has been made, then
+    check if the model file hash is correct to then check
+    if the model file has been swapped with another one before
+    the backup.
+    """
     if fileType == WPN.FILE_TYPE_1P:
         backupFile = getattr(getattr(WPN_ENUMS, fileTarget), "MDL_1P_FILE")
         backupFolder = getattr(getattr(WPN_ENUMS, fileTarget), "MDL_1P_FOLDER")
@@ -136,5 +130,23 @@ def wpn_backupMDL(rootDir, fileType, fileTarget):
     elif fileType == WPN.TYPE_MP:
         pass
     backupPath = r"{0}\{1}\{2}".format(rootDir, backupFolder, backupFile)
+    # If a backup file already has been made
+    if os.path.isfile(backupPath):
+        return(API.MESSAGE_SUCCESS)
+
+    hashData = wpn_hashMDL(rootDir, fileType, fileTarget)
+    # If the file hash is unknown or error
+    if hashData == (WPN.FILE_UNKNOWN or WPN.FILE_404):
+        logs.critical("Weapon hash is either unknown or has an error")
+        logs.critical(hashData)
+        return({"error": hashData})
+    # If the model file has been swapped with another one
+    fileStruct = hashData[1]
+    if fileStruct != getattr(getattr(WPN_ENUMS, fileTarget), "WPN_NAME_SHORT"):
+        # TODO if this error occurs, prompt the users to backup the original file manually
+        # Will also need to change the result message in order to do that
+        logs.error("Cannot backup the file because it has been swapped with another one.")
+        return {"result": API.MESSAGE_ERROR}
+
     fs_backupFile(backupPath)
     return(API.MESSAGE_SUCCESS)
