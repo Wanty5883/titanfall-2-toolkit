@@ -1,8 +1,24 @@
-class API(object):
-    MESSAGE_SUCCESS = "success"
+# LPL - Local Python Libraries
+from backend import ROOT_DIR
+
+
+class DATA(object):  # Data folder
+    WEAPON_SKIN = r"{0}\data\materials\weapons".format(ROOT_DIR)
+    WEAPON_ICON = r"{0}\data\images\weapon_icons".format(ROOT_DIR)
+
+
+class NETWORK(object):
+    API_LOCAL_PORT = 5883
+    API_NOSKILL_PORT = 4242
+    SERVER_DOMAIN = ""  # TODO
+    SERVER_SUBDOMAIN_API = "api"
+    SERVER_SUBDOMAIN_WORKSHOP = "workshop"
     MESSAGE_ERROR = "error"
-    SERVER_NAME = "r2_toolkit"
-    SERVER_PORT = 5883
+    MESSAGE_SUCCESS = "success"
+    USER_AGENT = "titanfall-2-toolkit"
+    URL_API = "http://127.0.0.1:4242"
+    # URL_API = "https://{0}.{1}".format(SERVER_SUBDOMAIN_API, SERVER_DOMAIN)  # Don't forget the port at the end
+    URL_WORKSHOP = "https://{0}.{1}".format(SERVER_SUBDOMAIN_WORKSHOP, SERVER_DOMAIN)
 
 
 class TEXTURE(object):

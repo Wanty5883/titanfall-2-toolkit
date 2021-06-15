@@ -4,7 +4,7 @@ import os.path
 import sys
 # LPL - Local Python Libraries
 from lib.core.attr import attr_wpnList
-from lib.core.enums import API
+from lib.core.enums import NETWORK
 from lib.core.enums import WPN
 from lib.core.fs import fs_backupFile
 from lib.core.log import logger as logs
@@ -99,7 +99,7 @@ def wpn_convertMDL(rootDir, fileType, fileVersion, fileTarget, structTarget=Fals
             file_hash = hashlib.md5(file_byte).hexdigest()
             if not file_hash == getattr(getattr(WPN_ENUMS, structTarget), fileHash):
                 logs.error("The file structure does not correspond to the correct file hash")
-                return(API.MESSAGE_ERROR)
+                return(NETWORK.MESSAGE_ERROR)
             for offset, bytes in fileMod:
                 file.seek(offset)
                 file.write(bytes)
@@ -108,8 +108,8 @@ def wpn_convertMDL(rootDir, fileType, fileVersion, fileTarget, structTarget=Fals
         logs.debug(errorMsg)
         logs.debug(format(AttributeError))
         logs.debug(format(error))
-        return(API.MESSAGE_ERROR)
-    return(API.MESSAGE_SUCCESS)
+        return(NETWORK.MESSAGE_ERROR)
+    return(NETWORK.MESSAGE_SUCCESS)
 
 
 def wpn_backupMDL(rootDir, fileType, fileTarget):
@@ -132,7 +132,7 @@ def wpn_backupMDL(rootDir, fileType, fileTarget):
     backupPath = r"{0}\{1}\{2}".format(rootDir, backupFolder, backupFile)
     # If a backup file already has been made
     if os.path.isfile(backupPath):
-        return(API.MESSAGE_SUCCESS)
+        return(NETWORK.MESSAGE_SUCCESS)
 
     hashData = wpn_hashMDL(rootDir, fileType, fileTarget)
     # If the file hash is unknown or error
@@ -146,7 +146,7 @@ def wpn_backupMDL(rootDir, fileType, fileTarget):
         # TODO if this error occurs, prompt the users to backup the original file manually
         # Will also need to change the result message in order to do that
         logs.error("Cannot backup the file because it has been swapped with another one.")
-        return {"result": API.MESSAGE_ERROR}
+        return {"result": NETWORK.MESSAGE_ERROR}
 
     fs_backupFile(backupPath)
-    return(API.MESSAGE_SUCCESS)
+    return(NETWORK.MESSAGE_SUCCESS)

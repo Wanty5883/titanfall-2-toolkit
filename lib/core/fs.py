@@ -3,7 +3,7 @@ import ntpath
 import os
 import shutil
 # LPL - Local Python Libraries
-from lib.core.enums import API
+from lib.core.enums import NETWORK
 from lib.core.log import logger as logs
 
 
@@ -15,10 +15,10 @@ def fs_backupFile(originalPath):
     logs.info("Making backup of {0}".format(originalPath))
     if not os.path.isfile(originalPath):  # Check if the file does not exist
         logs.critical("File not found")
-        return(API.MESSAGE_ERROR)
+        return(NETWORK.MESSAGE_ERROR)
     # TODO move "backup_" in enums, but find a suited class
     fileFolder, fileName = ntpath.split(originalPath)
     targetName = "backup_{0}".format(fileName)
     targetPath = "{0}\{1}".format(fileFolder, targetName)
     shutil.copyfile(originalPath, targetPath)
-    return(API.MESSAGE_SUCCESS)
+    return(NETWORK.MESSAGE_SUCCESS)

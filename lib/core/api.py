@@ -1,9 +1,12 @@
+# SPL - Standard Python Libraries
+import json
 # TPL - Third Party Libraries
 from fastapi import FastAPI
 from fastapi import Query
 # LPL - Local Python Libraries
 from lib.core.attr import attr_wpnList
 from lib.core.enums import WPN
+from lib.core.http import getWeaponSkinInfo
 from lib.core.log import logger_api as logs
 from lib.r2.wpn import wpn_backupMDL
 from lib.r2.wpn import wpn_convertMDL
@@ -12,7 +15,17 @@ import lib.r2.wpn_enums as WPN_ENUMS
 
 
 app = FastAPI()
-APP = app
+# APP = app
+
+# $$\  $$\  $$\  $$$$$$\   $$$$$$\   $$$$$$\   $$$$$$\  $$$$$$$\
+# $$ | $$ | $$ |$$  __$$\  \____$$\ $$  __$$\ $$  __$$\ $$  __$$\
+# $$ | $$ | $$ |$$$$$$$$ | $$$$$$$ |$$ /  $$ |$$ /  $$ |$$ |  $$ |
+# $$ | $$ | $$ |$$   ____|$$  __$$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |
+# \$$$$$\$$$$  |\$$$$$$$\ \$$$$$$$ |$$$$$$$  |\$$$$$$  |$$ |  $$ |
+#  \_____\____/  \_______| \_______|$$  ____/  \______/ \__|  \__|
+#                                   $$ |
+#                                   $$ |
+#                                   \__|
 
 
 @app.get("/weapons")
@@ -144,3 +157,12 @@ async def weaponBackup(
 
     r = wpn_backupMDL(rootDirectory, fileType, fileTarget)
     return {"result": r}
+
+
+@app.get("/weapon/installskin")
+async def weaponInstallSkin(
+    weaponName: str = Query(...),
+    skinID: str = Query(...),
+):
+    r = getWeaponSkinInfo(weaponName, skinID)
+    return(json.loads(r.text))
