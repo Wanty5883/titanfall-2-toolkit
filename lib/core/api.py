@@ -1,10 +1,15 @@
 # SPL - Standard Python Libraries
+from pathlib import Path
+from shutil import copyfile
 import json
+import os
 # TPL - Third Party Libraries
 from fastapi import FastAPI
+from fastapi import HTTPException
 from fastapi import Query
 # LPL - Local Python Libraries
 from lib.core.attr import attr_wpnList
+from lib.core.enums import DATA
 from lib.core.enums import WPN
 from lib.core.http import getWeaponSkinInfo
 from lib.core.log import logger_api as logs
@@ -161,8 +166,29 @@ async def weaponBackup(
 
 @app.get("/weapon/installskin")
 async def weaponInstallSkin(
+    materialDir: str = Query(...),
     weaponName: str = Query(...),
     skinID: str = Query(...),
 ):
-    r = getWeaponSkinInfo(weaponName, skinID)
-    return(json.loads(r.text))
+    filePath = r"{0}\{1}\{2}".format(DATA.WEAPON_SKIN, weaponName, skinID)
+    fileInfoPath = r"{0}\{1}".format(filePath, DATA.FILE_JSON_INFO)
+    result = getWeaponSkinInfo(weaponName, skinID)
+    if "error" in result:  # XXX If no NoSkill server
+        if not Path(fileInfoPath).is_file():
+            raise HTTPException(status_code=503, detail="Service Unavailable")
+        elif Path(fileInfoPath).is_file():
+
+            with open(fileInfoPath, "r") as file:
+                infoData = json.load(file)
+            for fileName in infoData["files"]:
+                # copyfile(r"data\materials\weapons\kraber\0001\info.json", r"E:\001 - Dev\titanfall-2-toolkit\data\info.json")
+                print(result)
+    elif "error" not in result:
+        if not Path(fileInfoPath).is_file():
+            with open(fileInfoPath, "w") as file:
+                file.write(result.text)
+        else:
+            print("42")
+        # XXX TODO use the makedirs func if server is ok and not downloaded bfore
+        # os.makedirs(filePath)  # Create all the required dirs
+    return(json.loads(result.text))

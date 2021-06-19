@@ -32,5 +32,5 @@ def getLogger(loggerName):
     return(logger)
 
 
-logger = getLogger("logger")
+logger = getLogger("CLIENT")
 logger_api = getLogger("API")

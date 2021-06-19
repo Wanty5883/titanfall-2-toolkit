@@ -3,6 +3,7 @@ from backend import ROOT_DIR
 
 
 class DATA(object):  # Data folder
+    FILE_JSON_INFO = "info.json"
     WEAPON_SKIN = r"{0}\data\materials\weapons".format(ROOT_DIR)
     WEAPON_ICON = r"{0}\data\images\weapon_icons".format(ROOT_DIR)
 
@@ -10,15 +11,15 @@ class DATA(object):  # Data folder
 class NETWORK(object):
     API_LOCAL_PORT = 5883
     API_NOSKILL_PORT = 4242
+    MESSAGE_ERROR = "error"
+    MESSAGE_SUCCESS = "success"
     SERVER_DOMAIN = ""  # TODO
     SERVER_SUBDOMAIN_API = "api"
     SERVER_SUBDOMAIN_WORKSHOP = "workshop"
-    MESSAGE_ERROR = "error"
-    MESSAGE_SUCCESS = "success"
-    USER_AGENT = "titanfall-2-toolkit"
     URL_API = "http://127.0.0.1:4242"
     # URL_API = "https://{0}.{1}".format(SERVER_SUBDOMAIN_API, SERVER_DOMAIN)  # Don't forget the port at the end
     URL_WORKSHOP = "https://{0}.{1}".format(SERVER_SUBDOMAIN_WORKSHOP, SERVER_DOMAIN)
+    USER_AGENT = "titanfall-2-toolkit"
 
 
 class TEXTURE(object):
@@ -67,8 +68,8 @@ class WPN(object):
 class FRONTEND(object):
     # TODO add ordnances
     # TODO add melees
-    # TODO add robots (ticks, marvin, specters, etc.)
-    # TODO add humans
+    # XXX add robots (ticks, marvin, specters, etc.)
+    # XXX add humans
     WPN_ALTERNATOR_DESC = "Twin Barrel SMG."
     WPN_ALTERNATOR_LONGDESC = "The Alternator (also referred to as the SP-14 Hatchet in concept art) is a Pilot anti-personnel twin-barrel submachine gun manufactured by Emslie Tactical."
     WPN_ALTERNATOR_NAME = "Alternator"
