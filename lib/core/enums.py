@@ -4,8 +4,8 @@ from backend import ROOT_DIR
 
 class DATA(object):  # Data folder
     FILE_JSON_INFO = "info.json"
-    WEAPON_SKIN = r"{0}\data\materials\weapons".format(ROOT_DIR)
-    WEAPON_ICON = r"{0}\data\images\weapon_icons".format(ROOT_DIR)
+    WEAPON_SKIN = r"{0}\data\r2\weapons\skins".format(ROOT_DIR)
+    WEAPON_ICON = r"{0}\data\r2\weapons\icons".format(ROOT_DIR)
 
 
 class NETWORK(object):
@@ -13,7 +13,7 @@ class NETWORK(object):
     API_NOSKILL_PORT = 4242
     MESSAGE_ERROR = "error"
     MESSAGE_SUCCESS = "success"
-    SERVER_DOMAIN = ""  # TODO
+    SERVER_DOMAIN = "directxeon.cc"  # TODO
     SERVER_SUBDOMAIN_API = "api"
     SERVER_SUBDOMAIN_WORKSHOP = "workshop"
     URL_API = "http://127.0.0.1:4242"

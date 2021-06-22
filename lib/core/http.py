@@ -25,3 +25,10 @@ def getWeaponSkinInfo(weaponName, skinID):
     query = {"weaponName": weaponName, "skinID": skinID}
     result = requestsGET(url, query)
     return(result)
+
+
+def getWeaponSkinMat(materialPath):
+    url = "{0}/{1}".format(NETWORK.URL_WORKSHOP, materialPath)
+    query = None
+    result = requestsGET(url, query)
+    return(result)
