@@ -1,10 +1,15 @@
 # TPL - Third Party Libraries
 from fastapi import FastAPI
+from fastapi import HTTPException
 from fastapi import Query
+from typing import Optional
 # LPL - Local Python Libraries
 import lib.r2.wpn_enums as WPN_ENUMS
 from lib.core.attr import attr_wpnList
+from lib.core.enums import SETTING
 from lib.core.enums import WPN
+from lib.core.fs import fs_readConfigFileVPK
+from lib.core.fs import fs_writeConfigFileVPK
 from lib.core.log import logger_api as logs
 from lib.r2.wpn import wpn_backupMDL
 from lib.r2.wpn import wpn_convertMDL
@@ -14,6 +19,50 @@ from lib.r2.wpn import wpn_installSkin
 
 app = FastAPI()
 # APP = app
+
+
+@app.get("/settings/vpk")
+async def settings(
+    settingsMode: str = Query(...),
+    vpkTarget: Optional[str] = None,
+    vpkPath: Optional[str] = None,
+):
+    vpkList = [
+        None,
+        SETTING.VPK_COMMON,
+        SETTING.VPK_FRONTEND,
+        SETTING.VPK_MP_AC,
+        SETTING.VPK_MP_BWC,
+        SETTING.VPK_MP_BOO,
+        SETTING.VPK_MP_CC,
+        SETTING.VPK_MP_CP,
+        SETTING.VPK_MP_COL,
+        SETTING.VPK_MP_COM,
+        SETTING.VPK_MP_CRA,
+        SETTING.VPK_MP_DEC,
+        SETTING.VPK_MP_DRY,
+        SETTING.VPK_MP_EDE,
+        SETTING.VPK_MP_EXO,
+        SETTING.VPK_MP_FOR,
+        SETTING.VPK_MP_GLI,
+        SETTING.VPK_MP_MEA,
+        SETTING.VPK_MP_REL,
+        SETTING.VPK_MP_RIS,
+        SETTING.VPK_MP_STA,
+        SETTING.VPK_MP_TOW,
+        SETTING.VPK_MP_TRA,
+        SETTING.VPK_MP_UMA,
+        SETTING.VPK_MP_WAR,
+    ]
+    if vpkTarget not in vpkList:
+        raise HTTPException(status_code=400, detail="vpkTarget is incorrect")
+    if settingsMode in (SETTING.MODE_READ, SETTING.MODE_READALL):
+        result = fs_readConfigFileVPK(settingsMode, vpkTarget)
+        return(result)
+    elif settingsMode == SETTING.MODE_WRITE:
+        result = fs_writeConfigFileVPK(vpkTarget, vpkPath)
+        return
+
 
 # $$\  $$\  $$\  $$$$$$\   $$$$$$\   $$$$$$\   $$$$$$\  $$$$$$$\
 # $$ | $$ | $$ |$$  __$$\  \____$$\ $$  __$$\ $$  __$$\ $$  __$$\
@@ -163,5 +212,8 @@ async def weaponInstallSkin(
     weaponName: str = Query(...),
     skinID: str = Query(...),
 ):
+    """
+    Do the different operation in order to install a weapon custom skin
+    """
     result = wpn_installSkin(materialDir, weaponName, skinID)
     return(result)

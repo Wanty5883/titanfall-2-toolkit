@@ -1,9 +1,12 @@
 # SPL - Standard Python Libraries
+import json
 import ntpath
 import os
 import shutil
 # LPL - Local Python Libraries
+from lib.core.enums import DATA
 from lib.core.enums import NETWORK
+from lib.core.enums import SETTING
 from lib.core.log import logger as logs
 
 
@@ -22,3 +25,23 @@ def fs_backupFile(originalPath):
     targetPath = "{0}\{1}".format(fileFolder, targetName)
     shutil.copyfile(originalPath, targetPath)
     return(NETWORK.MESSAGE_SUCCESS)
+
+
+def fs_readConfigFileVPK(settingsMode, vpkTarget):
+    if settingsMode == SETTING.MODE_READALL:
+        with open(DATA.CONFIG_FILE, "r") as file:
+            return(json.load(file)["vpk"])
+    if settingsMode == SETTING.MODE_READ:
+        with open(DATA.CONFIG_FILE, "r") as file:
+            return(json.load(file)["vpk"][vpkTarget])
+
+
+def fs_writeConfigFileVPK(vpkTarget, vpkPath):
+    with open(DATA.CONFIG_FILE, "w+") as file:
+        configData = json.load(file)
+        configData["vpk"][vpkTarget] = vpkPath
+        file.seek(0)
+        json.dump(configData, file)
+        file.truncate()
+
+    return

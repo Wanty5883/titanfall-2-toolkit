@@ -4,6 +4,7 @@ from backend import ROOT_DIR
 
 class DATA(object):  # Data folder
     FILE_JSON_INFO = "info.json"
+    CONFIG_FILE = r"{0}\data\{1}".format(ROOT_DIR, FILE_JSON_INFO)
     WEAPON_SKIN = r"{0}\data\r2\weapons\skins".format(ROOT_DIR)
     WEAPON_ICON = r"{0}\data\r2\weapons\icons".format(ROOT_DIR)
 
@@ -20,6 +21,36 @@ class NETWORK(object):
     # URL_API = "https://{0}.{1}".format(SERVER_SUBDOMAIN_API, SERVER_DOMAIN)  # Don't forget the port at the end
     URL_WORKSHOP = "https://{0}.{1}".format(SERVER_SUBDOMAIN_WORKSHOP, SERVER_DOMAIN)
     USER_AGENT = "titanfall-2-toolkit"
+
+
+class SETTING(object):
+    MODE_WRITE = "write"
+    MODE_READ = "read"
+    MODE_READALL = "readall"
+    VPK_COMMON = "common"
+    VPK_FRONTEND = "frontend"
+    VPK_MP_AC = "angel_city"
+    VPK_MP_BWC = "black_water_canal"
+    VPK_MP_BOO = "boomtown"
+    VPK_MP_CC = "coliseum_classic"
+    VPK_MP_CP = "coliseum_pillars"
+    VPK_MP_COL = "colony"
+    VPK_MP_COM = "complex"
+    VPK_MP_CRA = "crashsite"
+    VPK_MP_DEC = "deck"
+    VPK_MP_DRY = "drydock"
+    VPK_MP_EDE = "eden"
+    VPK_MP_EXO = "exoplanet"
+    VPK_MP_FOR = "forwardbase_kodai"
+    VPK_MP_GLI = "glitch"
+    VPK_MP_MEA = "meadow"
+    VPK_MP_REL = "relic"
+    VPK_MP_RIS = "rise"
+    VPK_MP_STA = "stacks"
+    VPK_MP_TOW = "township"
+    VPK_MP_TRA = "traffic"
+    VPK_MP_UMA = "uma"
+    VPK_MP_WAR = "wargames"
 
 
 class TEXTURE(object):

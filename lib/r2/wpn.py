@@ -243,6 +243,4 @@ def wpn_installSkin(materialDir, weaponName, skinID):
                         materialFile = getWeaponSkinMat(filePath)
                         open(materialPath, "wb").write(materialFile.content)
                 return
-        # XXX TODO use the makedirs func if server is ok and not downloaded bfore
-        # os.makedirs(filePath)  # Create all the required dirs
     # return(json.loads(result.text))
